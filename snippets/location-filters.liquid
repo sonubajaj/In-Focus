@@ -1,0 +1,80 @@
+{% assign current_city_name = '' %}
+{% assign current_city = '' %}
+{% assign current_locality_name = '' %}
+{% assign current_locality = '' %}
+{% assign current_city_line = '' %}
+
+{% for full_tag in current_tags %}
+  {% assign tag = full_tag | handleize %}
+  {% assign splitted = full_tag | split: ':' %}
+  {% if tag contains 'city' %}
+    {% assign current_city = tag %}
+    {% assign current_city_name = splitted[1] | strip %}
+  {% endif %}
+  {% if tag contains 'locality' %}
+    {% assign current_locality = tag %}
+    {% assign current_locality_name = splitted[1] | strip %}
+  {% endif %}
+{% endfor %}
+
+{% if current_locality != '' and current_city == '' %}
+  {% assign city-lines = settings.professionals_locations | split: settings.delimiter %}
+  {% for city-line in  city-lines %}
+    {% assign values = city-line | split: ':' %}
+    {% if values[1] contains current_locality_name %}
+      {% capture current_city %}city-{{ values.first | handleize }}{% endcapture %}
+      {% assign current_city_name = values.first | strip %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if current_city_name != '' %}
+  {% assign city-lines = settings.professionals_locations | split: settings.delimiter %}
+  {% for city-line in  city-lines %}
+    {% assign values = city-line | split: ':' %}
+    {% assign city_handle = values[0] | handleize %}
+    {% capture city_handle %}city-{{city_handle}}{% endcapture %}
+    {% if city_handle == current_city %}
+      {% assign current_city_line = city-line %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign city_tags_already_added = '' %}
+<label for="cities">Cities</label>
+<select name="cities" id="cities" class="filter city" autocomplete="off">
+  <option value="">All</option>
+  {% for tag in collection.all_tags %}
+    {% assign splitted = tag | split: ':' %}
+    {% assign tag_type = splitted[0] | handleize %}
+    {% assign tag_handle = tag | handleize %}
+    {% if tag_type == 'city' %}
+      {% if city_tags_already_added contains tag_handle %}
+        {% continue %}
+      {% endif %}
+      {% capture city_tags_already_added %}{{ city_tags_already_added }},{{ tag_handle }}{% endcapture %}
+      <option value="{{ tag_handle }}" {% if tag_handle == current_city %}selected{% endif %}>{{ splitted[1] | strip }}</option>
+    {% endif %}
+  {% endfor %}
+</select>
+
+{% assign location_tags_already_added = '' %}
+<label for="locations">Locations</label>
+<select name="locations" id="locations" {% if current_city == '' %}disabled="disabled"{% endif %} autocomplete="off" class="filter locality">
+  <option value="">All</option>
+  {% for tag in collection.all_tags %}
+    {% assign splitted = tag | split: ':' %}
+    {% assign tag_type = splitted[0] | handleize %}
+    {% assign tag_handle = tag | handleize %}
+    {% if tag_type == 'locality' %}
+      {% if location_tags_already_added contains tag_handle %}
+        {% continue %}
+      {% endif %}
+      {% capture location_tags_already_added %}{{ location_tags_already_added }},{{ tag_handle }}{% endcapture %}
+      {% assign loop_locality_name = splitted[1] | strip %}
+      {% if current_city_line contains loop_locality_name %}
+        <option value="{{ tag_handle }}" {% if tag_handle == current_locality %}selected{% endif %}>{{ splitted[1] | strip }}</option>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</select>

@@ -1,0 +1,24 @@
+<a name="awards&achievements">
+            	<div style="width: 700px; min-height: 200px; margin-bottom: 10px; ">
+                   <div class="professional-main-heading" style="margin-bottom:10px;">
+                    <i class="fa fa-trophy" style="color:#f90b0e"></i>&nbsp;&nbsp;Awards &amp; Achievements
+                    </div>
+                     <div style="border:1px solid #e0e0e0; min-height: 200px; color:#000;">
+                       <div id="awards-panel-display">
+                         <font class="professional-heading">Achievements</font>
+                       </div>
+                       <div id="awards-panel-display">
+                         <font class="professional-heading">Affiliations</font>
+                        {% if product.tags contains 'credai' %}
+                         <div style="clear: both; margin-top: 5px;"><img src="{{'credai_logo.png' | asset_url}}" style="width: 100px;"/></div>
+                                  {% endif %}
+                         {% if product.tags contains 'nar' %}
+                         <div style="clear: both; margin-top: 5px;"><img src="{{'nar_logo.jpg' | asset_url}}" style="width: 100px;"/></div>
+                                  {% endif %}
+                       </div>
+                       <div id="awards-panel-display-last">
+                         <font class="professional-heading">Awards</font>
+                       </div>
+                     </div>
+                </div>
+            </a> 

@@ -1,0 +1,128 @@
+<!-- contact form starts -->
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+             <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+              <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.23.min.js"></script><form >
+   <div style="padding: 10px; width: 190px;">
+			<div>					
+               <input type="text" style="width: 100%; padding: 8px; margin-top: 10px;" id="name" required placeholder="Full Name">
+			</div>
+            <div>					
+               <input type="email" style="width: 100%; padding: 8px; margin-top: 10px;"  id="email" required placeholder="Email">
+			</div>
+            <div>					
+               <input type="text" style="width: 100%; padding: 8px; margin-top: 10px;"  required id="Mobile" placeholder="Mobile No">
+			</div>
+            <div>					
+               <input type="text" style="width: 100%; padding: 8px; margin-top: 10px;"  id="location"  placeholder="your Address">
+			</div>
+            <div>					
+              <textarea style="width: 100%; padding: 8px; margin-top: 10px;"  id="message" placeholder="your Equiry"></textarea>
+			</div>
+            <div >
+                <button type="button" class="btn btn-primary" style="margin-top: 10px;" id="yourButtonId">Submit</button>
+            </div>
+	</div>
+<input id="to_mail" type="hidden" >
+    <input id="inquiry_type" type="hidden">
+</form>
+              
+             <script type="text/javascript">
+      
+        GetParamValue();
+      
+      Parse.initialize("t1jsxNsFkCSqdaC7mB2XyGUDnV9Saqa1AGAE0vW4", "6Pf2GYE0tvPhIfrHlkgYFuBz7kbxzc9taPQbIH58");
+     
+      $('#yourButtonId').click(function() {
+        
+    
+        
+        		 var data = 
+                {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('message').value,
+                    location: document.getElementById('location').value,
+                    Mobile: document.getElementById('Mobile').value,                  
+                    to_mail: document.getElementById('to_mail').value,
+                    inquiry_type: document.getElementById('inquiry_type').value                                     
+                }
+                 
+                    var email = validateEmail(data.email);     
+         			var Mobile = data.Mobile;
+                    var name = validateEmail(data.name);
+        
+       
+
+        
+                 if	(email)
+                 {
+                // Run our Parse Cloud Code and
+                // pass our 'data' object to it
+                Parse.Cloud.run("hello", data, {
+                    success: function (object) 
+                  {
+                    document.getElementById('name').value ="";
+                    document.getElementById('email').value ="";
+                    document.getElementById('message').value="";
+                    document.getElementById('location').value="";
+                    document.getElementById('Mobile').value="";
+                    
+                    
+                    alert("Thank you. We have successfully received your response");
+                    
+                   // parent.$("#colorbox").colorbox.close();
+
+                   //parent.$("#cboxOverlay").hide();
+              
+                       },
+
+                    error: function (object, error) {
+                        console.log(error);
+                        alert("Uh oh, something went wrong");
+                        //$('#response').html('Error! Email not sent!').addClass('error').fadeIn('fast');
+                    }
+                });
+                   
+                  
+                
+                 }
+        else
+        {
+          
+            alert("Please Enter the Email");
+          
+        }		
+            });
+      
+      
+      function getParameterByName(name) {
+ return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+
+      
+      function GetParamValue() {
+
+
+       var parms = getParameterByName("inquiry_type");
+        
+        document.getElementById("inquiry_type").value =parms;
+       
+           var parms1 = getParameterByName("to_mail");
+        
+        document.getElementById("to_mail").value =parms1;
+           
+
+}
+      
+      function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+      
+    
+          </script>

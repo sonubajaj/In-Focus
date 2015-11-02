@@ -1,0 +1,89 @@
+
+
+
+  <head>
+        <script type="text/javascript" src="jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.23.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+      #footer-wrapper 
+      {
+        display:none !important;
+      }
+      #divnewheader
+      { 
+        display:none !important;
+      }
+      
+      .size
+      {
+        width:550px !important;
+          height:480px !important;
+        overflow-x: hidden !important;
+      }
+      .mess
+      {
+        color: #666 !important;
+
+      }
+     .error {
+  border:2px solid red;
+}
+      label {
+    min-width: 0px!important;;
+    float: left;
+    margin: 0px 0px 0px 0px!important;;
+}
+    </style>
+  </head>
+  <body>
+    
+
+    
+    <button type="button" class="btn btn-primary" id="yourButtonId">Submit</button>
+    <script type="text/javascript">
+      
+       
+      
+      Parse.initialize("GGWO2nBsO3nfz5GBKbAXytCddfeHWlaFPTODebzf", "WZYe4c4skKHJffeoR5V2czbEUhit34IjvWv3cpXa");
+     
+      $('#yourButtonId').click(function() {
+        
+     var data = 
+                {
+                   
+                    Mobile: "9930684175",                  
+                                                   
+                }
+        
+        		
+                // Run our Parse Cloud Code and
+                // pass our 'data' object to it
+                Parse.Cloud.run("hello", data, {
+                    success: function (object) 
+                  {
+                   
+                    
+                    
+                    alert("Thank you. We have successfully received your response");
+                    
+                  
+              
+                       },
+
+                    error: function (object, error) {
+                        console.log(error);
+                        alert("Uh oh, something went wrong");
+                       
+                    }
+                });
+                
+      
+      });
+     
+      
+    
+          </script>
+    
+  </body>

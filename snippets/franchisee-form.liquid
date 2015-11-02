@@ -1,0 +1,134 @@
+<style>
+  .col-md-6{
+    width: 100% !important;
+  }
+</style>
+<div class="col-md-6 column lp-pom-box-85">
+		
+          
+          
+           <div class="col-md-12 column">
+             
+             <div class="centered">
+                      <h4>  <label id="lblmess"></label></h4>
+</div>
+             <form  method="" id="myform">
+          
+               
+				
+            
+               
+               
+            
+    <div class="form-group">
+      <label for="sel1" class="col-sm-8 control-label">Who You Are?</label>
+      <div class="col-sm-12">					
+     <select name="entry.627472847" id="entry_627472847" aria-label="Who You Are?" class="form-control" disabled><option value="Interested for Franchise" selected>Interested for Franchise</option></select>
+      </div>
+              </div>
+				<div class="form-group">
+					 <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-12">					
+                      <input name="entry.1060774951"  class="form-control" value=""  id="entry_1060774951" dir="auto"  aria-required="true" required="" title="" type="text">
+					</div>
+				</div>
+				
+            
+            <div class="form-group">
+					 <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-12">
+						<input name="entry.271942245"  class="form-control" value="" id="entry_271942245" dir="auto" aria-label="Email id  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address" type="email">
+					</div>
+				</div>
+            
+            <div class="form-group">
+					 <label for="inputPassword3" class="col-sm-2 control-label">Phone</label>
+					<div class="col-sm-12">
+						<input name="entry.946420391" class="form-control" value="" id="entry_946420391" dir="auto" aria-label="Phone No  " aria-required="true" required="" title="" type="text">
+					</div>
+				</div>
+            
+            
+                  <div class="form-group">
+					 <label for="inputPassword3" class="col-sm-2 control-label">Location</label>
+					<div class="col-sm-12">
+						<input name="entry.790229068" class="form-control" value="" id="entry_790229068" dir="auto" aria-label="Location" title="" type="text">
+					</div>
+				</div>
+            
+            
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						 
+					</div>
+                  <div class="col-sm-12" style="margin-top: 10px;">
+                  
+                    <div class="centered">
+    <button class="btn btn-large btn-primary" id="ss-submit"  type="submit">Submit</button>
+</div>
+                  </div>
+                  
+				</div>
+            
+               
+               
+			</form>
+             
+          </div>
+        
+  <!-- <div id="dialog" title="Basic dialog" style="display:none">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div> -->
+
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  
+  <script type="text/javascript">
+$(document).ready(function() {
+ 
+ 
+            //callback handler for form submit
+$("#myform").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action"); 
+	console.log(postData);
+  $('#entry_1060774951').val('');
+  $('#entry_627472847').val('');
+  $('#entry_271942245').val(''); 
+  $('#entry_946420391').val('');
+  $('#entry_790229068').val('');
+  $('#lblmess').text('Your message was sent successfully');
+  
+  $('#myform').hide();
+    $.ajax(
+    {
+        url : 'https://docs.google.com/forms/d/1MM1Q5UN0rKo6uHHGnUlXn4Zlnyv73A9xDFTq19dPuy0/formResponse?embedded=true',
+        type: "POST",
+        crossDomain: true,
+        data : postData,
+        success:function(data, textStatus, jqXHR)
+        {
+            //data: return data from server
+          
+           
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            //if fails  
+                     
+
+        }
+     
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind();
+});
+});
+</script>
+  
+          </div>

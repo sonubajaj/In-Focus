@@ -1,0 +1,159 @@
+<div class="col-content reverse">
+
+	{% if settings.show_carousel == true %}
+		<div id="carousel-wrapper">
+			<div id="carousel">
+				<ol class="items">
+
+					{% if settings.show_carousel_item_1 == true %}
+					<li>
+						{% if settings.carousel_item_1_link != "" %}
+							{{ 'carousel-item-1.jpg' | asset_url | img_tag | link_to: settings.carousel_item_1_link }}
+						{% else %}
+							{{ 'carousel-item-1.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+					{% if settings.show_carousel_item_2 == true %}
+					<li>
+						{% if settings.carousel_item_2_link != "" %}
+						{{ 'carousel-item-2.jpg' | asset_url | img_tag | link_to: settings.carousel_item_2_link }}
+						{% else %}
+							{{ 'carousel-item-2.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+					{% if settings.show_carousel_item_3 == true %}
+					<li>
+						{% if settings.carousel_item_3_link != "" %}
+						{{ 'carousel-item-3.jpg' | asset_url | img_tag | link_to: settings.carousel_item_3_link }}
+						{% else %}
+							{{ 'carousel-item-3.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+					{% if settings.show_carousel_item_4 == true %}
+					<li>
+						{% if settings.carousel_item_4_link != "" %}
+						{{ 'carousel-item-4.jpg' | asset_url | img_tag | link_to: settings.carousel_item_4_link }}
+						{% else %}
+							{{ 'carousel-item-4.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+					{% if settings.show_carousel_item_5 == true %}
+					<li>
+						{% if settings.carousel_item_5_link != "" %}
+						{{ 'carousel-item-5.jpg' | asset_url | img_tag | link_to: settings.carousel_item_5_link }}
+						{% else %}
+							{{ 'carousel-item-5.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+					{% if settings.show_carousel_item_6 == true %}
+					<li>
+						{% if settings.carousel_item_6_link != "" %}
+						{{ 'carousel-item-6.jpg' | asset_url | img_tag | link_to: settings.carousel_item_6_link }}
+						{% else %}
+							{{ 'carousel-item-6.jpg' | asset_url | img_tag }}
+						{%endif%}
+					</li>
+					{% endif %}
+
+				</ol>
+			</div>
+
+			{% if settings.show_carousel_controls == true %}
+			<div id="carousel-controls" class="clearfix">
+				<ol id="carousel-slide-menu"></ol>
+				<p class="carousel-nextprev"><a class="prev browse left" title="Previous slide">Previous</a> / <a class="next browse right" title="Next slide">Next</a> </p>
+			</div>
+			{% endif %}
+
+		</div>
+	{% endif %}
+
+
+
+	{% if settings.home_show_ads == true %}
+	<div class="home-ads clearfix">
+
+		<!-- Ad on the left #1 -->
+		<div class="widget widget-image large-ad {% if settings.show-home-left-ad-back %}auto-ad-back{% endif %}" id="widget-home-ad-1">
+			<div class="widget-content">
+				{% assign link_url = "#" %}
+				{% if settings.home_ad_left_link != blank %}
+					{% assign link_url = settings.home_ad_left_link %}
+				{% endif %}
+
+				{{ 'home-left-ad.jpg' | asset_url | img_tag | link_to: link_url }}
+				{% if settings.show-home-left-ad-back %}
+					{{ 'home-left-ad-back.jpg' | asset_url | img_tag | link_to: link_url}}
+				{% endif %}
+			</div>
+		</div><!-- /.widget -->
+
+		<!-- Ad on the right #2 -->
+		<div class="widget widget-image large-ad {% if settings.show-home-right-ad-back %}auto-ad-back{% endif %}" id="widget-home-ad-2">
+			<div class="widget-content">
+				{% assign link_url = "#" %}
+				{% if settings.home_ad_right_link != blank %}
+					{% assign link_url = settings.home_ad_right_link %}
+				{% endif %}
+
+				{{ 'home-right-ad.jpg' | asset_url | img_tag | link_to: link_url }}
+				{% if settings.show-home-right-ad-back %}
+					{{ 'home-right-ad-back.jpg' | asset_url | img_tag | link_to: link_url}}
+				{% endif %}
+			</div>
+		</div><!-- /.widget -->
+
+	</div>
+	{% endif %}
+</div>
+
+<div class="col-browse reverse">
+	{% comment %}{% include 'left-col-nav' %}{% endcomment %}
+	{% include 'left-col-social' %}
+	{% include 'left-col-ads' %}
+</div><!-- /#col-browse -->
+
+<div class="col-content reverse full-width">
+  {% if settings.home_welcome and pages[settings.home_welcome].handle == settings.home_welcome and pages[settings.home_welcome].content.size > 0 %}
+  <div class="content">
+  {{ pages[settings.home_welcome].content }}
+  </div>
+  {% endif %}
+
+
+	{% for count in (1..5) %}
+		{% capture collection_handle %}home_collection{{ count }}{% endcapture %}
+		{% assign current_collection = settings[collection_handle] %}
+		{% if current_collection and collections[current_collection].handle == current_collection and collections[current_collection].products_count != 0  and current_collection != blank %}
+
+			<!-- Product list -->
+			<div class="productlist-wrapper {{current_collection}}">
+				<div class="productlist-header section-header">
+					<h2>{{ collections[current_collection].title | link_to: collections[current_collection].url }}</h2>
+				</div>
+
+				<ul class="thumbgrid clearfix">
+					{% for product in collections[current_collection].products %}
+						<li {% cycle collection_handle:'', '', ' class="last-in-row"' %}>
+							<div class="product-photo"><a href="{{ product.url | within: collection }}"><img src="{{ product.images[0] | product_img_url: "medium" }}" alt="{{ product.featured_image.alt | escape }}" /></a></div>
+							{% include 'product-desc' %}
+						</li>
+					{% endfor %}
+				</ul>
+			</div><br/><br/><!-- /.productlist-wrapper -->
+
+		{% endif %}
+	{% endfor %}
+
+</div>
+<!-- /.col-content -->

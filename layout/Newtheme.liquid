@@ -1,0 +1,615 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <script>
+    if(location.hostname.indexOf('property') != -1) {
+      location = "/pages/property";
+    }
+  </script>
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  {% comment %}
+    Provide a *slightly* better product description for search engines.
+    Descriptions don't affect rankings, but can influence click-throughs.
+  {% endcomment %}
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description }}" />
+  {% endif %}
+
+  {% include 'open-graph' %}
+  {% include 'twitter-cards' %}
+
+  <title>
+    {% if template == 'index' %}{% if page_title contains 'Welcome' %}{{ shop.name }} &ndash; Welcome{% else %}{{ page_title }}{% endif %}{% elsif template == '404' %}Page Not Found{% elsif page_title contains shop.name %}{{ page_title }}{% else %}{{ page_title }} &ndash; {{ shop.name }}{% endif %}
+  </title>
+
+  {{ content_for_header }}
+
+  {% if settings.header_font == "Chewy, arial, sans-serif" %}
+    <link href='//fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+  {% elsif settings.header_font == "Copse, arial, sans-serif" %}
+    <link href='//fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
+  {% elsif settings.header_font == "Play, arial, sans-serif" %}
+    <link href='//fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+  {% elsif settings.header_font == "Arvo, arial, sans-serif" %}
+    <link href='//fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  {% endif %}
+
+  
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }} 
+  {{ 'colorbox.css' | asset_url | stylesheet_tag }}
+  {{ 'facebox.css' | asset_url | stylesheet_tag }}
+   {{ 'Mycss.css' | asset_url | stylesheet_tag }}
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+  {% if template contains 'customers' %}
+    {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+    {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {% include 'analytics' %}
+  
+  <style type="text/css">
+     .mess1
+      {
+        color :#666666;
+      }
+      .widthclass
+      {
+        width:80%;
+      }
+       
+      .centered
+{
+   /* text-align:center;*/
+  padding-top:20px;
+  padding-bottom:20px;
+}
+     .lp-pom-box-85 {
+/* display: block; 
+background: rgba(255,255,255,0);
+-pie-background: rgba(255,255,255,0);
+border-style: solid;
+border-width: 5px;
+border-color: #3e9ce3;*/
+left: 0px;
+z-index: 1;
+/*width: 413px;*/
+height: 100%;
+position: absolute;
+border-radius: 10px; 
+   
+     display: block;
+border: 2px solid #E6E6E6;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}    
+
+  </style>
+</head>
+
+<body class="{% if customer %}customer-logged-in{% endif %} template-{{ template | replace: '.', ' ' | replace: '/', '-' | truncatewords: 1, '' }}" id="{{ page_title | handle }}">
+
+  
+
+
+  <div id="main-wrapper">
+
+    <!-- Header -->
+  
+ 
+  {% include 'NewHeader' %}
+
+         
+  <!-- /#header-wrapper -->
+    <!-- Top Menu -->
+    
+    <div class="row clearfix">
+                <div class="col-md-12 column">
+                   <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                    <div class="carousel slide" id="carousel-308739">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-slide-to="0" data-target="#carousel-308739"></li>
+                            <li data-slide-to="1" data-target="#carousel-308739"></li>
+                            <li data-slide-to="2" data-target="#carousel-308739"></li>
+                          	<li data-slide-to="3" data-target="#carousel-308739"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{ 'banner-4.jpg' | asset_url }}" alt="">
+                         
+                            </div>
+                            <div class="item">
+                               <img src="{{ 'banner-2.jpg' | asset_url }}" alt="">
+                           
+                            </div>
+                            <div class="item">
+                                <img src="{{ 'banner-3.jpg' | asset_url }}" alt="">
+                        
+                            </div>
+                             <div class="item">
+                                <img src="{{ 'banner-5.jpg' | asset_url }}" alt="">
+                        
+                            </div>
+                        </div> <a class="left carousel-control" href="#carousel-308739" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span></a>  
+                        <a class="right carousel-control" href="#carousel-308739" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span>
+
+                        </a>
+
+                    </div>
+                 
+                    </div>
+                </div>
+            </div>
+ <!-- /#top-menu -->
+
+
+    
+    
+
+    <!-- Main Content -->
+
+          {{ content_for_layout }}
+  
+ <div class="container">
+   
+     
+         <div class="row clearfix">
+		<div class="col-md-12 column">
+			<p style="margin: 0px 0px 50px">
+
+			</p>
+		</div>
+	</div>
+   
+   
+        <div class="row clearfix">
+		<div class="col-md-12 column">
+			<h1 class="text-center">
+              <b class="large">Buyers / Tenants </b>
+			</h1>
+			
+          <h4 class="text-center mess1">
+          Looking for right properties or professionals search or send us your details
+          </h4>
+			
+		</div>
+	</div>
+   
+   
+
+   <div class="row clearfix">		
+		<div class="col-md-6 column">                    
+          <div class="col-md-2 column">
+<img src="{{ 'multiple25.png' | asset_url }}" alt="" class="widthclass">   
+                  
+          </div>
+                
+          <div class="col-md-10 column">
+<p>  
+  <span>
+    <p class="large1"><b> Who we are?</b></p>
+  </span>  
+  <span>
+    We are a online and offline platform of Experienced, Verified & Rated Professionals.
+  </span>
+  
+</p>                 
+          </div>
+			
+          
+          
+            		<div class="col-md-2 column">
+<img src="{{ 'handshake1.png' | asset_url }}" alt="" class="widthclass">   
+          </div>
+                
+          <div class="col-md-10 column">
+<p>
+  
+  <span>
+    <p class="large1"><b> What we do for Buyers / Tenants?</b></p>
+  </span>
+  
+  
+  <span>
+    
+  We help you to identify the best available properties as per your needs through our huge network of quality professionals, they always believe in transparent & quality transactions.
+
+  </span>
+  
+            </p>                 
+          </div>
+          
+          
+            <div class="col-md-2 column">
+<img src="{{ 'screwdriver3.png' | asset_url }}" alt="" class="widthclass">   
+                  
+          </div>
+                
+          <div class="col-md-10 column">
+<p>  
+  <span>
+    <p class="large1"><b> How we do?</b></p>
+  </span>  
+  <span>
+  <p class="large1"><b>Through Online:</b></p>
+<li>Search here for Right Professionals</li>
+
+<p class="large1"><b>Through Offline:</b></p>
+<li>Send us your Details</li>
+<li>We will help you to get the best deal</li>
+
+
+
+
+  </span>
+  
+</p>                 
+          </div>
+          
+		</div>
+
+				{% include 'GoogleAllEnquiry' %}
+          
+           
+		</div>
+   
+   
+   
+   
+  
+   
+            <div class="row clearfix">
+                <div class="col-md-12 column" style="margin-top:50px;">
+                        <div class="col-md-7 column">
+                            <div class="caption">
+                                 <h4> What people say about us?</h4>
+
+                            </div>
+                            <div class="col-md-5 column">
+                              <article class="thumbnail_line"><div  class="block-cont">
+                           
+                                <div><b>Arvind Sharma</b>
+                                  </div>
+                                <span ><b>ex CEO Leo Burnett</b></span><p>
+                               First initiative ever in its kind. Really insightful.</p></div>
+                              </article>
+                            </div>
+                             <div class="col-md-5 column">
+                              <article class="thumbnail_line"><div  class="block-cont">
+                           
+                                <div ><b>Mukesh</b>
+                                 </div>
+                                <span ><b>G K Enterprises</b></span><p>
+                              This is a great platform. I recommend this to all customer.</p></div>
+                              </article>
+                            </div>
+                               
+                         
+                          
+                          
+                          
+                           <div class="col-md-5 column center-block">
+                              <article class="thumbnail_line"><div  class="block-cont">
+                           
+                                <div><b>Lokesh Agrawal</b>
+                                   </div>
+                                <span ><b>Ace Consultancy</b></span><p>
+                               A really new and innovative platform for finding the right professional.</p></div>
+                              </article>
+                            </div>
+                          
+                          
+                            <div class="col-md-5 column center-block">
+                              <article class="thumbnail_line"><div  class="block-cont">
+                           
+                                <div><b>Mr. Rakesh Sahu</b>
+                                   </div>
+                                <span ></span><p>
+                               Amazing platform, to meet the like minded people
+                                </p></div>
+                              </article>
+                            </div>
+                          
+                          
+                            <div class="col-md-9 column" style="margin-top:30px;">
+                                <div class="caption">
+                                     <h4> Few FAQ’s for Buyers:</h4>
+
+                                </div>
+                             
+                              
+                              <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Q1: Why to select a right professional?</a>
+            </h4>
+        </div>
+        <div id="panel1" class="panel-collapse collapse in">
+            <div class="panel-body">
+              Because a right professional will understand your requirements in deep. With proper search and research he will save you lots of time and energy and will give options and choice according to your tastes.
+            </div>
+        </div>
+    </div>
+   
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel2">Q2: Who can be a right professional?</a>
+            </h4>
+        </div>
+        <div id="panel2" class="panel-collapse collapse">
+            <div class="panel-body">
+                Who is trained and experienced to understand your needs and research the best for you. He should work like a property manager for you not an agent to what he is selling.
+            </div>
+        </div>
+    </div>
+                                 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel3">Q3: Benefits of dealing with a right professionals?</a>
+            </h4>
+        </div>
+        <div id="panel3" class="panel-collapse collapse">
+            <div class="panel-body">
+                Ans: They can save lot of time, money, effort and stress for you.  
+            </div>
+        </div>
+    </div>
+                                
+                                 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel4">Q4: How they can save time & money for me?</a>
+            </h4>
+        </div>
+        <div id="panel4" class="panel-collapse collapse">
+            <div class="panel-body">
+                Ans: As mentioned in point 1 they understand your requirements in depth and with proper search, deliver the best
+            </div>
+        </div>
+    </div>
+                                
+                                 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel5">Q5: In case professional doesn’t give me satisfactory services?</a>
+            </h4>
+        </div>
+        <div id="panel5" class="panel-collapse collapse">
+            <div class="panel-body">
+                Ans: You should rate them and review them so that they try to improvise themselves for future service delivery.
+            </div>
+        </div>
+    </div>
+                                 
+
+</div>
+                              
+                            </div>
+                        </div>
+                
+                        <div class="col-md-4 column">
+                           
+                        
+                         <a href="#" target="_blank">   <img class="banner" src="{{'RealEstate.jpg' | asset_url }}"  /></a>
+                           
+                            <a href="#" target="_blank">   <img class="banner" src="{{'RealEstate2.jpg' | asset_url }}"  /></a>
+                          
+                             <a href="#" target="_blank">   <img class="banner" src="{{'RealEstate3.jpg' | asset_url }}"  /></a>
+                                                                                                                   </div>                                                                                                 </div>
+                    
+				</div>
+			</div>
+
+            
+ 
+    
+    <!-- /#main -->
+
+  <!-- /#main-wrapper -->
+
+
+
+  <!-- Footer -->
+  <div id="footer-wrapper">
+    <div id="footer" class="wrapper clearfix">
+
+      <div class="join-newsletter footer-col">
+        <h3>Join our Mailing List</h3>
+        {% form 'customer' %}
+
+          {% if form.posted_successfully? %}
+            <p class="success-msg">Thanks for joining!</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <p class="error-msg">
+            {% for field in form.errors %}
+              {{ field }} - {{ form.errors.messages[field] }}
+            {% endfor %}
+            </p>
+          {% endif %}
+
+          <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+          <div id="newsletter-signup">
+            <input type="hidden" id="newsletter-first-name" name="contact[first_name]" value="Subscriber" />
+            <input type="hidden" id="newsletter-last-name" name="contact[last_name]" value="Newsletter" />
+            <label for="newsletter-email">Email address:</label>
+            <input type="email" class="email" id="newsletter-email" name="contact[email]" />
+            <input type="submit" class="submit btn" value="Join" />
+                                 <div class='container1'>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+          <div id='row'><a href="https://www.facebook.com/infocus.in"  target="_blank"><i class='icon-facebook'></i></a>
+            <a href="https://www.linkedin.com/company/brand_infocus" style="padding-left:10px" target="_blank"><i class='icon-linkedin'></i></a>
+           <!-- <a href="http://instagram.com/" style="padding-left:10px" target="_blank"> <i class='icon-instagram'></i></a> -->
+              <a href="https://twitter.com/Brand_infocus" style="padding-left:10px" target="_blank">  <i class='icon-twitter'></i></a>
+            
+          </div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+</div>
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="footer-linklists footer-col">
+        {% include 'footer-linklist' with settings.footer_linklist_1 %}
+        {% include 'footer-linklist' with settings.footer_linklist_2 %}
+        {% include 'footer-linklist' with settings.footer_linklist_3 %}
+      </div>
+
+      <div class="footer-text footer-col">
+        <p>{{ settings.footer_txt | newline_to_br }}</p>         
+   
+      </div>
+
+
+
+    {% if settings.show_amex or settings.show_discover or settings.show_visa or settings.show_mastercard or settings.show_maestro or settings.show_cirrus or settings.show_paypal or settings.show_google or settings.show_bitcoin %}
+    <div id="footer-payment-methods">
+      <p>Payment methods we accept</p>
+      {% if settings.show_amex %}       {{ 'cc-amex.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_discover %}   {{ 'cc-discover.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_visa %}       {{ 'cc-visa.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_mastercard %} {{ 'cc-mastercard.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_maestro %}    {{ 'cc-maestro.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_cirrus %}     {{ 'cc-cirrus.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_paypal %}     {{ 'cc-paypal.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_google %}     {{ 'cc-google.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_bitcoin %}    {{ 'cc-bitcoin.png' | asset_url | img_tag }} {% endif %}
+    </div>
+    {% endif %}
+
+    </div><!-- /#footer -->
+  </div><!-- /#footer-wrapper -->
+
+  {% unless template == 'cart' %}
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+
+  {{ 'jquery.colorbox-min.js' | asset_url | script_tag }}
+  {{ 'jquery.chained.min.js' | asset_url | script_tag }}
+  {{ 'jquery.hoverintent.js' | asset_url | script_tag }}
+  {{ 'jquery.tools.min.js' | asset_url | script_tag }}
+  {{ 'facebox.js' | asset_url | script_tag }}
+
+  {%if product %}
+    <script>
+
+    {% if product.available %}
+    var selectCallback = function(variant, selector) {
+      if (variant && variant.available == true) {
+        // selected a valid variant
+        $('#add-to-cart').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+        if(variant.compare_at_price == null){
+          $('.options .price').html('<strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}")+'</strong><span class="compare_at_price" style="visibility:hidden">was not</span>');
+        } else {
+          $('.options .price').html('<strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}") + '</strong> <span class="compare_at_price">was <del>' + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_with_currency_format}}") + '</del></span>');
+        }
+      } else {
+        // variant doesn't exist
+        $('#add-to-cart').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+        var message = variant ? "Sold Out" : "Unavailable";
+        $('.options .price').text(message); // update price-field message
+      }
+    };
+
+    // initialize multi selector for product
+    $(function() {
+      new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+      {% assign found_one_in_stock = false %}
+
+      {% for variant in product.variants %}
+        {% if variant.available and found_one_in_stock == false %}
+          {% assign found_one_in_stock = true %}
+          {% for option in product.options %}
+          $('.single-option-selector:eq(' + {{ forloop.index0 }} + ')').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+    });
+    {% endif %}
+
+
+    $('.lightbox').facebox({
+      loadingImage: '{{ "loading.gif" | asset_url }}',
+      closeImage:  '{{ "closelabel.png" | asset_url }}'
+    });
+    </script>
+
+    <!-- fb like button -->
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- +1 button -->
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+    <!-- tweet btn -->
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+  {% endif %}
+
+
+
+  {{ 'theme.js' | asset_url | script_tag }}
+  {{ 'custom.js' | asset_url | script_tag }}
+
+  {% endunless %}
+
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.js"></script>
+  <!--  {{ 'infocus.css' | asset_url | stylesheet_tag }} -->
+    {{ 'Header.css' | asset_url | stylesheet_tag }}
+    <script type="text/javascript">
+$(document).ready(function(){
+    // Activate carousel
+    $("#myCarousel").carousel();
+    $('.js-activated').dropdownHover().dropdown();
+	});            
+    var $active = $('#accordion .panel-collapse.in').prev().addClass('active');
+    $active.find('a').prepend('<i class="glyphicon glyphicon-minus"></i>');
+    $('#accordion .panel-heading').not($active).find('a').prepend('<i class="glyphicon glyphicon-plus"></i>');
+    $('#accordion').on('show.bs.collapse', function (e) {
+        $('#accordion .panel-heading.active').removeClass('active').find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
+        $(e.target).prev().addClass('active').find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
+    });
+                                                                                                                                                                                                 
+  </script>
+  </div>
+</body>
+</html>

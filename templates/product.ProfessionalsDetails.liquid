@@ -1,0 +1,71 @@
+<!-- tooltip jquery and style code starts -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+{{ 'jquery.Prettyphoto.js' | asset_url | script_tag }}
+{{ 'professional-carasoul.js' | asset_url | script_tag }}
+
+<script type="text/javascript">
+$(document).ready(function() {
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
+        // Hover over code
+        var title = $(this).attr('title');
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltip"></p>')
+        .text(title)
+        .appendTo('body')
+        .fadeIn('slow');
+}, function() {
+        // Hover out code
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltip').remove();
+}).mousemove(function(e) {
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY + 10; //Get Y coordinates
+        $('.tooltip')
+        .css({ top: mousey, left: mousex })
+});
+});
+</script>
+<style>
+  .tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:3px;
+	color:#fff;
+	font-size:10px Arial;
+    z-index: 999;
+    cursor: pointer;
+}
+</style>
+<!-- tooltip jquery and style code ends -->
+<div id="professional-details-page" data-value="{{ product.id }}">
+  <div style="width: 100%; padding: 10px; ">
+          <!-- header panel starts -->
+            {% include 'professional-header' %}
+          <!-- header panel ends -->
+          <div style="clear: both;">
+          </div>
+         
+          <div id="main-content-panel" style="margin-top: 10px; padding: 10px; float: left; margin-left: -9px; margin-right: 7px;">
+            <!-- about content starts -->
+              {% include 'professional-cover-about-me' %}
+            <!-- about content ends -->
+            <!-- about content starts -->
+              {% include 'professional-cover-business-profile' %}
+            <!-- about content ends -->
+            <!-- about content starts -->
+              {% include 'professional-cover-awards' %}
+            <!-- about content ends -->
+            <!-- about content starts -->
+              {% include 'professional-cover-photos' %}
+            <!-- about content ends -->
+            
+    	  </div>
+          <div style="float: left; width: 230px;">
+          	 {% include 'professional-page-right-contact-form' %}
+          </div>
+      </div>
+</div>

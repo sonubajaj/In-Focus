@@ -1,0 +1,115 @@
+<div class="profile-info">
+    <div class="main clearfix">
+        <div style="width: 100%;">
+          <div style="float: left; margin-left: 5px;">
+            <h2 class="name">{{ product.title }}</h2>
+          </div>
+          {% if product.tags contains 'verified' %}
+          <div style="float: left; border-radius: 3px; cursor: pointer; margin-left: 10px; padding: 3px; margin-top: -3PX;" class="masterTooltip" title="Verified Profile by in-FOCUS">
+            <div style="float: left;">
+              <img style="width: 20px; height: 20px;" src="{{'verified_icon.png'|asset_url}}" />
+            </div>
+            <div style="float: left; margin-left: 1px; margin-top: 4px; margin-top: 2px; font-weight: bold;">
+              Verified&nbsp;&nbsp;
+            </div>
+          </div>
+          {% endif %}
+          <div style="clear: both;">
+          </div>
+      </div>
+      <div style="clear: both;">
+      </div>
+      <div style="width: 100%;">
+      	<!-- column left starts -->
+        	 {% include 'professional-profile-info-left' %}
+        <!-- column left ends -->
+        <!-- column center starts -->
+        <div style="float: left; width: 120px; padding: 5px; min-height: 150px;">
+            
+          <div class="established" style="margin-top: 10px; text-align: center;">
+              <!-- languages tag starts -->
+                                         {% assign attribute_keyword = 'adi:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  {% assign found = true %}<strong>Area Cater in:</strong>
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div class="areatag" style="clear: both; margin-top: 5px; margin-bottom: 5px; padding: 5px; border-radius: 3px; font-size: 13px;">' | prepend: ''  | append: '</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+            <!-- languages tag ends -->
+          </div>
+          
+        </div>
+        <!-- column center ends -->
+        <!-- column right starts -->
+        <div style="float: left; width: 150px; padding: 5px; min-height: 150px;">
+          <div class="established" style="margin-top: 10px; text-align: center;">
+            <strong>Social Media Profiles:</strong>
+            {% if website != blank %}
+               <a href="http://{{ website }}" target="_blank" style="margin-top: 2px;">
+               	 <div class="areatag" style="clear: both; clear: both; margin-top: 5px; margin-bottom: 5px; padding: 5px; border-radius: 3px; font-size: 13px;">
+                  Visit my Website
+                 </div>  
+               </a>
+            {% endif %}
+            {% if linkedin_link != blank %}
+               <a href="http://{{ linkedin_link }}" target="_blank">
+               	<div style="background-color:#007bb6;  margin-top: 5px; margin-bottom: 5px; padding: 5px; border-radius: 3px; color:#fff; font-size: 13px;">
+                     <div style="width: 30px; float: left; text-align: center;">
+                       <i class="fa fa-linkedin" style="color:#fff; font-size: 15px;"></i>
+                   </div>
+                   <div style="width: 90px; float: left; margin-left: 3px; text-align: left; color:#fff; font-size: 13px;">
+                      see my profile
+                     </div>
+                   <div style="clear: both;">
+                     </div>
+                 </div>  
+               </a>
+            {% endif %}
+            {% if facebook_link != blank %}
+               <a href="http://{{ facebook_link }}" target="_blank">
+                 <div style="background-color:#3b5998; margin-top: 5px; margin-bottom: 5px; padding: 5px; border-radius: 3px; color:#fff; font-size: 13px;">
+                     <div style="width: 30px; float: left; text-align: center;">
+                       <i class="fa fa-facebook" style="color:#fff; font-size: 15px;"></i>
+                   </div>
+                   <div style="width: 90px; float: left; margin-left: 3px; text-align: left; color:#fff; font-size: 12px;">
+                      see my profile
+                     </div>
+                   <div style="clear: both;">
+                     </div>
+                 </div>
+                </a>
+            {% endif %}
+            {% if twitter_link != blank %}
+              <a href="http://{{ twitter_link }}" target="_blank">
+               <div style="background-color:#1dcaff;  margin-top: 5px; margin-bottom: 5px; padding: 5px; border-radius: 3px; color:#fff; font-size: 13px;">
+                     <div style="width: 30px; float: left; text-align: center;">
+                       <i class="fa fa-twitter" style="color:#fff; font-size: 15px;"></i>
+                   </div>
+                   <div style="width: 90px; float: left; margin-left: 3px; text-align: left; color:#fff; font-size: 13px;">
+                      see my profile
+                     </div>
+                   <div style="clear: both;">
+                     </div>
+                 </div>
+                </a>
+            {% endif %}     
+          </div>
+        </div>
+        <!-- column right ends -->
+      </div>
+      <div style="clear: both;">
+      </div>
+      <div class="profile-desc clearfix" style="padding: 5px;">
+       <!--  {{ product.id }}  -->
+        <!-- <a class="btn" href="/product/ProfessionalsDetails{{product.url}}">Know More</a> -->
+         <a href="{{ product.url | within: collection }}" class="btn inquiry-btn"><i class="fa fa-external-link" style="color:#fff;"></i>&nbsp;&nbsp;Know More</a>
+        <!-- <span class="expand2" style="margin-top: 5px; position: absolute;"><img class="small-icon" src="{{'plus-icon.png'|asset_url}}" /></span> -->
+        <span class="btn inquiry-btn inquiry-prof" data-email="{{  email }}" style="position: absolute; margin-top: 5px; margin-left: 245px;"><i class="fa fa-envelope-o" style="color:#fff;"></i>&nbsp;&nbsp;Send Enquiry Directly</span>
+      </div>
+    </div>
+  </div>

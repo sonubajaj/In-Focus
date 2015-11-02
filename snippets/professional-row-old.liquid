@@ -1,0 +1,236 @@
+{% assign email = '' %}
+{% assign enquiryemail = '' %}
+{% assign facebook_link = '' %}
+{% assign linkedin_link = '' %}
+{% assign twitter_link = '' %}
+{% assign fullname = '' %}
+{% assign established = '' %}
+{% assign services = '' %}
+{% assign expertise = '' %}
+{% assign languages = '' %}
+{% assign phone = '' %}
+{% assign address = '' %}
+{% assign about = '' %}
+{% assign bs = '' %}
+{% for tag in product.tags %}
+ 
+{% if tag contains 'email:' %}{% assign tag_data = tag | split: ':'%}{% assign email = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'enquiryemail:' %}{% assign tag_data = tag | split: ':'%}{% assign enquiryemail = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'bs:' %}{% assign tag_data = tag | split: ':'%}{% assign bs = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'facebook' %}{% assign tag_data = tag | split: ':'%}{% assign facebook_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'linkedin' %} {% assign tag_data = tag | split: ':'%}{% assign linkedin_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'twitter' %}{% assign tag_data = tag | split: ':'%}{% assign twitter_link = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'fullname' %}{% assign tag_data = tag | split: ':'%}{% assign fullname = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'established' %}{% assign tag_data = tag | split: ':'%}{% assign established = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'services' %}{% assign tag_data = tag | split: ':'%}{% assign services = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'expertise' %}{% assign tag_data = tag | split: ':'%}{% assign expertise = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'languages' %}{% assign tag_data = tag | split: ':'%}{% assign languages = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'phone' %}{% assign tag_data = tag | split: ':'%}{% assign phone = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'address' %}{% assign tag_data = tag | split: ':'%}{% assign address = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'about' %}{% assign tag_data = tag | split: ':'%}{% assign about = tag_data[1] | strip %}{% endif %}
+
+{% endfor %}
+
+
+
+
+
+
+{% assign rating = product.price | slice: 0 %}
+
+{% assign halfrating = product.price | slice: 1 %}
+
+
+
+{% if product.images[1] != blank %}
+  <div class="logo">
+    <img src="{{ product.images[1] | product_img_url: "small" }}" alt="{{ product.featured_image.alt | escape }}" />
+  </div>
+{% endif %}
+<div class="profile-image">
+  <img src="{{ product.images[0] | product_img_url: "compact" }}" alt="{{ product.featured_image.alt | escape }}" />
+  {% if fullname != blank %}
+    <div class="profile-image-name" style="backgroud-color: #f90b0e; padding: 5px; border-radius: 3px; text-align: center;">{{ fullname }}</div>
+  {% endif %}
+</div>
+<div class="profile-info">
+  <div class="main clearfix">
+      <div style="width: 100%;">
+        <div style="float: left;">
+          <h2 class="name">{{ product.title }}</h2>
+        </div>
+        {% if product.tags contains 'verified' %}
+        <div style="float: left; border-radius: 3px; cursor: pointer; margin-left: 10px; padding: 3px; margin-top: -3PX;" class="masterTooltip" title="Verified Profile by in-FOCUS">
+          <div style="float: left;">
+            <img style="width: 20px; height: 20px;" src="{{'verified_icon.png'|asset_url}}" />
+          </div>
+          <div style="float: left; margin-left: 1px; margin-top: 4px; margin-top: 2px; font-weight: bold;">
+            Verified&nbsp;&nbsp;
+          </div>
+        </div>
+        {% endif %}
+        <div style="clear: both;">
+        </div>
+    </div>
+         {% if bs == "true" %}
+    <a href="http://www.bechsmartly.in/" id="show-option" target="_blank" title="The Professional is trained by BS to handle the consumer with transparency & clarity"> 
+      <img style="height:100px;position: absolute;margin-left: 280px;" src="{{'bechSmartly-cert.png'|asset_url}}" />
+    </a>
+         {% endif %}
+     {% if rating != '0' %}
+     <div>
+
+    </div>
+
+    
+      {% case rating %}               
+  {% when '1' %}
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />        
+  {% when '2' %}
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+     {% when '3' %}
+     <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+     {% when '4' %}
+      <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+     {% when '5' %}
+    <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+        <img style="height:20px" src="{{'star.png'|asset_url}}" />
+  {% else %}                    
+{% endcase %}
+    
+        
+    {% case halfrating %}
+  {% when '5' %}
+      <img style="height:20px" src="{{'half-star.png'|asset_url}}" />     
+  {% when '6' %}
+           <img style="height:20px" src="{{'half-star.png'|asset_url}}" />     
+    {% when '7' %}
+           <img style="height:20px" src="{{'half-star.png'|asset_url}}" />     
+    {% when '8' %}
+           <img style="height:20px" src="{{'half-star.png'|asset_url}}" />     
+    {% when '9' %}
+           <img style="height:20px" src="{{'half-star.png'|asset_url}}" />   
+  {% else %}  
+{% endcase %}
+ 
+                   {{rating |capitalize }}
+                    
+                     {% if halfrating != '0' %}
+                    .{{halfrating |capitalize }} 
+                       {% endif %}
+               
+            
+           
+       {% endif %}
+
+    
+    {% if established != blank %}
+      <div class="established">(Established in: {{ established }})
+    </div>
+    {% endif %}
+
+  <div class="contact clearfix">
+    <span class="element main">
+      <div class="phone clearfix">
+        <span class="element">
+          <img class="small-icon" src="{{'phone-icon.png'|asset_url}}" />
+        </span>
+        <span class="element numbers">
+          {% assign nos = phone | split: ',' %}
+          {% for no in nos %}
+            {{ no | strip }}<br />
+          {% endfor %}
+        </span>
+      </div>
+      <span class="btn inquiry-btn inquiry-prof" data-email="{{  email }}"><img src="{{'mail-icon.png'|asset_url}}" />&nbsp;&nbsp;Send Inquiry</span>
+    </span>
+    <span class="element">
+      <div class="address">{{ address }}
+        <div class="website">
+          <a href="{{ website }}" target="_blank" style="margin-right: 10px;">Website</a> 
+          {% if facebook_link != blank %}
+            <a href="{{ facebook_link }}" target="_blank"><img src="{{'facebook_16.png'|asset_url}}" alt=""></a>
+          {% endif %}
+          {% if linkedin_link != blank %}
+            <a href="{{ linkedin_link }}" target="_blank"><img src="{{'linkedin_16.png'|asset_url}}" alt=""></a>
+          {% endif %}
+          {% if twitter_link != blank %}
+            <a href="{{ twitter_link }}" target="_blank"><img src="{{'twitter_16.png'|asset_url}}" alt=""></a>
+          {% endif %}
+        </div>
+      </div>
+    </span>
+  </div>
+  <br/>
+  <div class="services clearfix">
+    {% if services != blank %}
+      <label class="element label block-element">Services offered:</label>
+      <div class="element">{{ services }}</div>
+    {% elsif expertise != blank %}
+      <label class="element label block-element">Expertise:</label>
+      <div class="element">{{ expertise }}</div>
+    {% endif %}
+    {% if languages != blank %}
+    <div class="clearfix">
+      <label class="element label block-element">Languages:</label>
+      <div class="element">{{ languages }}</div>
+    </div>
+  {% endif %}
+  </div>
+</div>
+<div class="clearfix">
+</div>
+{% if about != blank %}
+  <div class="profile-desc clearfix">
+    <label class="label" style="min-width: initial;">About</label>
+    <span class="expand"><img class="small-icon" src="{{'plus-icon.png'|asset_url}}" /></span>
+    <p>{{ about }}</p>
+  </div>
+{% endif %}
+  
+  
+   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ 
+ <script type="text/javascript">
+  $(function() {
+    $( "#show-option" ).tooltip({
+      show: {
+        effect: "slideDown",
+        delay: 250
+      }
+    });
+
+    $( "#open-event" ).tooltip({
+      show: null,
+      position: {
+        my: "left top",
+        at: "left bottom"
+      },
+      open: function( event, ui ) {
+        ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+      }
+    });
+  });
+  </script>

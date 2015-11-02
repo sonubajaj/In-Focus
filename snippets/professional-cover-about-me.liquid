@@ -1,0 +1,157 @@
+<a name="aboutme">
+            	<div style="width: 698px; min-height: 200px;">
+                   <div class="professional-main-heading">
+                     <i class="fa fa-list-alt" style="color:#f90b0e"></i>&nbsp;&nbsp;About Me
+                    </div>
+                   <!-- about content starts -->
+                   <div style="border:1px solid #e0e0e0; min-height: 250px; margin-bottom: 10px; margin-top: 10px;">
+                     <!-- left panel starts -->
+                      <div style="width: 370px; border-right: 1px solid #e0e0e0; min-height: 250px; float: left;">
+                          <!-- about me panel -->
+                            <div style="padding: 10px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                   About me
+                               </div>
+                               <div style="margin-left: 8px; margin-top: 5px; min-height: 155px;" class="firsttext professional-content">
+                                  {% if about != blank %}
+                            		{{ about }}
+                                  {% endif %}
+                                  {% if about == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                        <!-- about me panel ends -->
+                      </div>
+                     <!-- left panel ends -->
+                     <!-- right panel starts -->
+                      <div style="width: 320px; min-height: 250px; float: left;">
+                          <!-- top content -->
+                          <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px; min-height: 150px;">
+                             <div style="float: left; width: 150px; min-height: 150px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                    Name
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if fullname != blank %}
+                                        {{ fullname }}
+                                      {% endif %}
+                                      {% if fullname == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Qualification
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if qualification != blank %}
+                                        {{ qualification }}
+                                      {% endif %}
+                                      {% if qualification == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                             </div>
+                            <!-- float right starts -->
+                            <div style="float: left; width: 150px; min-height: 150px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     DOB
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if dob != blank %}
+                                       <!-- tags add starts -->
+                                         {{ dob }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if dob == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Professional Exp.
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      <!-- prof tag starts -->
+                                         {% assign attribute_keyword = 'prof_exp:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                       <!-- prof tag ends -->
+                                      {% if languages == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                             </div>
+                            <!-- float right ends -->
+                            <!-- float bottom starts -->
+                            <div style="clear: both;">
+                            </div>
+                            <div style="border-top:1px dotted #e0e0e0; margin: 5px;"> 
+                            </div>
+                            <div style="float: left; height: 100px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Languages i Know
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      <!-- languages tag starts -->
+                                         {% assign attribute_keyword = 'languages:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                       <!-- languages tag ends -->
+                                      {% if languages == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                             </div>
+                            <!-- float bottom ends -->
+                          </div>
+                        <!-- top content ends -->
+                      </div>
+                     <!-- right panel ends -->
+                   </div>
+                  <!-- about content ends -->
+                </div>
+            </a>

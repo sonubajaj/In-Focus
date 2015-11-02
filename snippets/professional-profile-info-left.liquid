@@ -1,0 +1,57 @@
+<div style="float: left; width: 200px; padding: 5px; min-height: 150px;">
+          <!-- establish starts -->
+          	<div class="established" style="margin-top: 10px;">
+            <strong>Established in:</strong> <br/>
+            {% if established != blank %}
+          		{{ established }}
+          	{% endif %}
+            {% if established == blank %}
+          		NA
+          	{% endif %}
+            </div>
+          <!-- establish ends -->
+          <!-- legal status starts -->
+          	<div class="legalstatus" style="margin-top: 10px;">
+            <strong>Legal Status:</strong> <br/>
+            {% if legalstatus != blank %}
+          		{{ legalstatus }}
+          	{% endif %}
+            {% if legalstatus == blank %}
+          		NA
+          	{% endif %}
+            </div>
+          <!-- legal status ends -->
+          <!-- qualification status starts -->
+          	<div class="qualification" style="margin-top: 10px;">
+            <strong>Qualification:</strong> <br/>
+            {% if qualification != blank %}
+          		{{ qualification }}
+          	{% endif %}
+            {% if qualification == blank %}
+          		NA
+          	{% endif %}
+            </div>
+          <!-- qualification status ends -->
+          <!-- language known starts -->
+          	<div class="langknown" style="margin-top: 10px;">
+            <strong>Language Known:</strong> <br/>
+           <!-- languages tag starts -->
+                                         {% assign attribute_keyword = 'languages:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                       <!-- languages tag ends -->
+            {% if languages == blank %}
+          		NA
+          	{% endif %}
+            </div>
+          <!-- language known ends -->
+  </div>

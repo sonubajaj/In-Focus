@@ -1,0 +1,9 @@
+<span class="filters-row">
+    {% include 'location-filters' %}
+</span>
+<span class="filters-row">
+  <label>BHKs</label>
+  {% include 'dynamic-filter' with 'bhk' %}
+  <label>Price Range</label>
+  {% include 'dynamic-filter' with 'price-range' %}
+    </span>

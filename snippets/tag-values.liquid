@@ -1,0 +1,21 @@
+{% assign tag-name = tag-values %}
+{% if tag-values contains '-multiple' %}
+  {% assign tag-name = tag-values | split: '-' | first %}
+{% endif %}
+{% assign tag_handles = '' %}
+{% for original_tag in product.tags %}
+  {% assign tag = original_tag | handleize %}
+  {% assign tag_split_colon = original_tag | split: ':' %}
+  {% if tag contains tag-name %}
+    {% if tag_handles contains tag %}
+      {% continue %}
+    {% endif %}
+
+    {% if tag-values contains '-multiple' and tag_handles != blank %},{% endif %}
+    {{ tag_split_colon[1] | strip }}
+
+    {% unless tag-values contains '-multiple' %}{% break %}{% endunless %}
+
+    {% capture tag_handles %}{{ tag_handles }},{{ tag }}{% endcapture %}
+  {% endif %}
+{% endfor %}

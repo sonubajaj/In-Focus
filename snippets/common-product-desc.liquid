@@ -1,0 +1,14 @@
+<div class="product-desc">
+  <h3 class="product-title"><a href="{{ product.url | within: collection }}">{{ product.title | escape | truncate: 35 }}</a></h3>
+  <p class="product-price">
+  {% if product.price_varies %} 
+    from {{ product.price_min | money }}
+  {% else %}
+    {{ product.price_min | money }}
+    {% if product.compare_at_price_max > product.price %} <del>{{ product.compare_at_price_max | money }}</del>{% endif %}                
+  {% endif %}
+  </p>
+  <div class="extra-info hide">
+    <span class="minus-icon icon"></span><span class="plus-icon icon"></span>
+  </div>
+</div>

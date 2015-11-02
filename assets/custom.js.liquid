@@ -1,0 +1,133 @@
+/*
+ * Collection page description
+ */
+$('.expand').click(function(){
+  var para = $($(this).siblings('p')[0]);
+  if (para.is(':visible')) {
+    para.slideUp();
+  } else {
+    para.slideDown();
+  }
+})
+/*
+ * Collection product descriptions extras
+ */
+$('.product-desc .extra-info').mouseenter(function(){
+  $(this).stop(true, true).animate({top: '0px'}, 200).removeClass('hide').addClass('show');
+}).mouseleave(function(){
+  $(this).stop(true, true).animate({top: '44px'}, 200).removeClass('show').addClass('hide');
+});
+
+/*
+ * Collection page select boxes
+ */
+$('.filter').change(function(){
+  var self = this;
+  var params = this.value;
+
+  if ($(this).hasClass('city')) {
+    $('.filter.locality').val("");
+    if (params == "") {
+      $('.filter.locality').trigger('change');
+      return;
+    }
+  }
+
+  $('.filter').each(function(){
+    if(this != self) {
+      if (this.value != "") {
+        if (params == "") {
+          params = this.value;
+        } else {
+          params += '+' + this.value;
+        }
+      }
+    }
+  });
+
+  window.location.assign(COLLECTION_URL + '/' + params);
+
+});
+/*
+ * Franchisee page select boxes
+ */
+$('#franchisee-locations').chained('#franchisee-cities');
+$('#franchisee-locations').change(function(){
+  if (this.value != '') {
+    window.location.assign(COLLECTION_URL + '/' + this.value);
+  }
+})
+
+/*
+ * Send inquiry dialog
+ */
+
+$('.flip-ad-back').mouseenter(function(){
+  $(this).find('a:odd').css('visibility', 'visible');
+}).mouseleave(function(){
+  $(this).find('a:odd').css('visibility', 'hidden');
+});
+if ( $('.auto-ad-back').length > 0 ) {
+  $('.auto-ad-back').each(function(){
+    var container = $(this);
+    setInterval(function(){
+      var ad_back = container.find('a:odd');
+      if(ad_back.css('visibility') == 'hidden') {
+        ad_back.css('visibility', 'visible');
+      } else {
+        ad_back.css('visibility', 'hidden');
+      }
+    },3000+Math.floor(Math.random()*2000));
+  })
+}
+$('.inquiry-btn.inquiry-prof').colorbox({   
+  iframe: true, href: "http://property.in-focus.in/pages/try",
+  width:"620px", height:"530px",
+  onComplete: function(){
+    inquiryData.to_mail = $(this).data('email');      
+    $('#cboxContent iframe').attr('src', "http://property.in-focus.in/pages/try?"+jQuery.param(inquiryData));
+  }
+});
+
+if ($('#product-inquiry-btn').data('seller')) {  
+  var url = '/products/' + $('#product-inquiry-btn').data('seller') + '.json';
+  $.get(url, function(data){
+    var tags = data.product.tags;
+    var exp = /email:\s*([^,]*),?/;
+    if (exp.test(tags)) {
+      var email = tags.match(exp)[1];     
+      var btn = $('#product-inquiry-btn');
+      btn.removeClass('disabled');
+
+    
+      btn.click(function(){
+        inqData.to_mail = email;
+        $.colorbox({
+          iframe: true,
+          href: "https://in-focus.parseapp.com/inquiry/product?"+jQuery.param(inqData),
+          width:"620px", height:"530px"
+        });
+      })
+
+      // Show seller details
+      if(data.product.title != 'In-Focus') {
+        $('#seller-details').show().text('Seller: ' + data.product.title);
+      }
+    }
+  });
+}
+
+$('.quick-view.action-links').each(function(){
+  $(this).colorbox({
+    iframe: true, href: $(this).data('product-url'), scrolling: false, fastIframe: false,
+    width: "1024px", height: "530px",
+    onOpen: function(){
+        $('#cboxLoadingOverlay, #cboxLoadingGraphic').show();
+    },
+    onLoad: function(){$('#cboxContent iframe').hide();},
+    onComplete: function(){
+      $('#cboxLoadingOverlay, #cboxLoadingGraphic').hide();
+      $('#cboxContent iframe').contents().find('#header-wrapper, #top-menu').hide();
+    }
+  });
+})

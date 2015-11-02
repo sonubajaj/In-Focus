@@ -1,0 +1,24 @@
+{% for ad_no in (1..4) %}
+	{% capture should_show_img %}show_leftcol_ad_{{ ad_no }}{% endcapture %}
+	{% if settings[should_show_img] %}
+		{% capture img_link %}leftcol_ad_{{ ad_no }}_link{% endcapture %}
+		{% capture img_asset %}leftcol-ad-{{ ad_no }}.jpg{% endcapture %}
+		{% capture should_show_back %}show_leftcol_ad_{{ ad_no }}_back{% endcapture %}
+		{% capture back_img_asset %}leftcol-ad-{{ ad_no }}-back.jpg{% endcapture %}
+		
+		<div class="widget widget-image small-ad {% if settings[should_show_back] %}flip-ad-back{% endif %}" id="widget-leftad-{{ad_no}}">
+			<div class="widget-content">
+				{% assign link_url = "#" %}
+				{% if settings[img_link] != blank %}
+					{% assign link_url = settings[img_link] %}
+				{% endif %}
+
+				{{ img_asset | asset_url | img_tag | link_to: link_url}}
+				{% if settings[should_show_back] %}
+				{{ back_img_asset | asset_url | img_tag | link_to: link_url}}
+				{% endif %}
+					
+			</div>
+		</div>
+	{% endif %}
+{% endfor %}

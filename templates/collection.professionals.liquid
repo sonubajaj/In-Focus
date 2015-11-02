@@ -1,0 +1,91 @@
+<!-- tooltip jquery and style code starts -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
+        // Hover over code
+        var title = $(this).attr('title');
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltip"></p>')
+        .text(title)
+        .appendTo('body')
+        .fadeIn('slow');
+}, function() {
+        // Hover out code
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltip').remove();
+}).mousemove(function(e) {
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY + 10; //Get Y coordinates
+        $('.tooltip')
+        .css({ top: mousey, left: mousex })
+});
+});
+</script>
+<style>
+  .tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:3px;
+	color:#fff;
+	font-size:10px Arial;
+    z-index: 999;
+    cursor: pointer;
+}
+</style>
+<!-- tooltip jquery and style code ends -->
+
+<div class="col-content">
+
+  <div class="productlist-wrapper condensed collection professionals collection-{{ collection.handle }}">
+    
+    <div class="productlist-header section-header">
+      <h1 class="collection-heading">{{ collection.title }}</h1>
+      <span class="filters-row">
+        <div style="float: left; margin-top: 5px;">
+          {% include 'location-filters' %}
+        </div>
+      </span>
+      
+    </div>
+    
+    {{ collection.description }}
+
+    {% paginate collection.products by 10 %}
+      {% if collection.products.size > 0 %}
+        <ul>
+          {% for product in collection.products %}
+            <li class="row clearfix" style="margin-bottom: 10px;">
+              {% include 'professionals-row' with 'product' %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+      
+      {% else %}    
+        <strong>No professionals found in this location</strong>
+      {% endif %}
+    {% endpaginate %}
+  
+  </div>
+</div>
+  
+<div class="col-browse">
+  {% include 'left-col-nav' %}
+  {% include 'left-col-social' %}    
+  {% include 'left-col-ads' %}
+</div><!-- /#col-browse -->
+
+<script type="text/javascript">
+  var COLLECTION_URL = "{{ collection.url }}";
+  var inquiryData = {
+    inquiry_type: "{{ collection.title }}"
+  };
+</script>

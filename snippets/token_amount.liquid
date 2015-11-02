@@ -1,0 +1,43 @@
+<!-- button starts -->
+	{% if product.available %}
+       <div style="clear: both; background-color:#efefef; border-radius: 3px; padding: 8px; border-top:1px solid #999; border-bottom: 1px solid #999;">
+       <div style="width: 100%; float: left; margin-bottom: 10px;">
+         <div>
+         <strong>Booking Amount</strong>: 
+<br>Rs {{ product.price | money }} /-<br/>
+       </div>
+	   </div><br/>
+        <div style="width: 100%; float: left; margin-bottom: 10px;"> 
+       <div>
+         <strong>Available Unit Type</strong>: 
+<br/>{% include 'tag-values' with 'bhk-multiple' %}<br/>
+       </div>
+         </div><br/>
+         <div style="width: 100%; float: left; margin-bottom: 5px;"> 
+         <div>
+         <strong>Project Price</strong>:
+<br/>{% include 'tag-values' with 'actual-price' %}<br/>
+       </div>
+        </div>
+         <div style="width: 100%; float: left;"> 
+       <!-- <span class="btn inquiry-btn disabled" id="product-inquiry-btn" data-seller="{{ seller_handle }}"><img src="{{'mail-icon.png'|asset_url}}" />&nbsp;&nbsp;Send Inquiry</span> -->
+      	<!-- ajit add to cart button -->
+        {% if product.variants.first.available %}
+        <div style="clear: both; margin-top: 15px; float: right; ">
+          <form action="/cart/add" method="post">
+         	<input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          	<input type="submit" name="add" value="Book Now" id="add" class="btn inquiry-btn" style="width: 315px; text-transform: uppercase; color:#fff;"/>
+          </form>
+   		</div>
+       {% endif %}
+       {% if seller_handle != 'in-focus' or  seller_handle != 'infocus'%}
+          <a id="seller-details" href="/products/{{ seller_handle }}" target="_blank"></a>
+        {% endif %}
+        {% else %}
+          <p class="completely-sold-out">This product is currently sold out.</p>
+    {% endif %}
+           </div>
+         <div style="clear: both;">
+         </div>
+	</div>
+<!-- button ends -->

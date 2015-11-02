@@ -1,0 +1,58 @@
+<div style="margin-top: 20px; background-color:#f90b0e; margin-left: 5px; width:230px;">
+  <div class="professional-main-heading" style="cursor: pointer; text-align: center; padding: 20px; color:#fff; border-radius: 5px;">
+     <i class="fa fa-share-alt" style="color:#fff; " ></i>&nbsp;&nbsp;Company Rating
+  </div>
+  
+  <div style="min-height: 20px; padding: 15px; text-align: center; font-size: 23px; font-weight: bold; background-color:#e0e0e0; margin-top: -5px;">
+   <!-- rating starts -->
+                     {% if rating != blank %}
+                        <div style="text-align: center; margin-left: -10px; margin-top: 5px; cursor: pointer;" class="masterTooltip" title="Rated by in-FOCUS Team">
+                          {% case rating %}               
+                            {% when '1' %}
+                          <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                            {% when '2' %}
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '3' %}
+                               <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '4' %}
+                                <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '5' %}
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                            {% else %}                    
+                          {% endcase %}
+                      </div>
+                        {% endif %}
+                      {% if rating == blank %}
+                         <div style="text-align: left; margin-top: 3px; padding: 5px; cursor: pointer;" class="masterTooltip" title="Not Rated">
+                              <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          </div>
+                        {% endif %}
+                  <!-- rating ends -->
+    <div style="clear: both;">
+    </div>
+</div>
+</div>

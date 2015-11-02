@@ -1,0 +1,126 @@
+<div id="lp-pom-box-21">
+   <h2 class="top30" style="color:#fff; text-align: center;">To know more about this project<br/>
+  </h2>
+  <p style="margin-top: 20px; text-align: center; color:#fff;">
+    Send your details below:
+     </p>
+     <div style="margin-top: 20px; text-align: center; color:#fff;">
+                      <h4>  <label id="lblmess" style=""></label></h4>
+               </div>
+  <div class="col-sm-12">
+              
+             <form id="myform" target="_self" >
+               <div class="form-group">
+                 <div style="color:#fff;">Name *</div>
+					<div style="margin-top: 10px;">					
+                      <input type="text" name="entry.1427217274" value="" class="ss-q-short required" id="entry_1427217274" dir="auto" aria-label="Name  " aria-required="true" required="" title="" style="width: 85%; padding: 10px;">
+					</div>
+				</div>
+				
+            
+            <div class="form-group" style="margin-top: 10px;">
+					 <div style="color:#fff;">Mobile Number *</div>
+					<div style="margin-top: 10px;">
+						<input type="number" name="entry.191204397" value="" class="ss-q-short valid" id="entry_191204397" dir="auto" aria-label="Mobile No  Must be a number greater than 0" step="any" title="Must be a number greater than 0" style="width: 85%; padding: 10px;">
+					</div>
+				</div>
+            
+            <div class="form-group" style="margin-top: 10px;">
+					 <div style="color:#fff;">Email Id *</div>
+					<div style="margin-top: 10px;">
+						<input type="email" name="entry.1795556814" value="" class="ss-q-short required" id="entry_1795556814" dir="auto" aria-label="Email Id  Must be a valid email address" aria-required="true" required="" title="Must be a valid email address" aria-invalid="true" style="width: 85%; padding: 10px;">
+					</div>
+				</div>
+            
+            
+                  <div class="form-group" style="margin-top: 10px;">
+					 <div style="color:#fff;">What are you looking for ?</div>
+					<div style="margin-top: 10px;">
+						<select name="entry.1581509495" id="entry_1581509495" style="width: 90%; padding: 10px;" aria-label="What are you looking for?  " aria-required="true" required=""><option value=""></option>
+<option style="width: 85%; padding: 10px;" selected>Please select an option..</option> <option value="Plan for the Site Visit" style="width: 85%; padding: 10px;">Plan for the Site Visit</option> <option value="Know more about the project" style="width: 85%; padding: 10px;">Know more about the project</option> <option style="width: 85%; padding: 10px;" value="Call back from us">Call back from us</option></select>
+					</div>
+				</div>
+               
+               
+               <div class="form-group" style="margin-top: 10px;">
+					 <div style="color:#fff;">Where you Stay ?</div>
+					<div style="margin-top: 10px;">
+						<select name="entry.724872638" style="width: 90%; padding: 10px;" id="entry_724872638" aria-label="Where you stay?  " aria-required="true" required="" class="required"><option value=""></option>
+<option style="width: 85%; padding: 10px;" selected>Please select your City..</option> <option value="Mumbai" style="width: 85%; padding: 10px;">Mumbai</option> <option style="width: 85%; padding: 10px;" value="Thane">Thane</option> <option value="Navi Mumbai" style="width: 85%; padding: 10px;">Navi Mumbai</option></select>
+					</div>
+				</div>
+            
+            
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						 
+					</div>
+                  <div class="col-sm-10">
+                  
+                    <div >
+    <button class="btn btn-sm btn-primary" id="ss-submit" style="margin-top: 10px; padding: 10px; margin-left: -13px; width: 245px;" type="submit">Submit</button>
+</div>
+                  </div>
+                  
+				</div>
+                 <div class="col-sm-10 top30">
+               </div>
+            
+			</form>
+
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  
+    <script type="text/javascript">
+$(document).ready(function() {
+ 
+ 
+            //callback handler for form submit
+$("#myform").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action"); 
+	console.log(postData);
+  $('#entry_1427217274').val('');
+  $('#entry_191204397').val('');
+  $('#entry_1795556814').val(''); 
+  $('#entry_1581509495').val('');
+  $('#entry_724872638').val('');
+  $('#lblmess').show().text('Your message was sent successfully');
+  
+  $('#myform').hide();
+    $.ajax(
+    {
+        url : 'https://docs.google.com/forms/d/1ABc8r8ApS6P6wyLsbXsMNonVXurmvKZg8uu2YaHh7Mo/formResponse',
+        type: "POST",
+        crossDomain: true,
+        data : postData,
+        success:function(data, textStatus, jqXHR)
+        {
+            //data: return data from server
+          
+           
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            //if fails  
+                     
+
+        }
+     
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind();
+});
+});
+</script>
+    <div style="clear: both;">
+    </div>
+</div>
+</div>
+
+
+   

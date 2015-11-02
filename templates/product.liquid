@@ -1,0 +1,126 @@
+{% assign seller_handle = "" %}
+{% for tag in product.tags %}
+  {% if tag contains "seller:" %}
+  {% assign temp = tag | split: ":" %}
+  {% assign seller_handle = temp[1] | handleize %}
+  {% endif %}
+{% endfor %}
+
+{% assign price = ''%}
+{% for original_tag in product.tags %}
+  {% assign tag = original_tag | handleize %}
+  {% assign tag_split_colon = original_tag | split: ':' %}
+  {% if tag contains 'actual-price' %}
+    {% assign price = tag_split_colon[1] %}
+  {% endif %}
+{% endfor %}
+
+
+<div class="col-content">
+  
+  <div id="single-product" class="product-{{ product.handle }} clearfix">
+   <div style="width: 98%; padding: 10px; background-color:#F90B0E; border-radius: 4px; color:#fff; font-weight: bold; margin-bottom: 10px; font-size: 16px; text-transform: uppercase">
+     Book a home in <strong>{{ product.title }}</strong> by paying only {{ product.price | money }} /-
+   </div>
+    <div style="clear: both;">
+    </div>
+    <div id="product-photos" class="clearfix">
+      <!-- <div class="large-thumb">
+        <a class="lightbox" href="{{ product.featured_image | product_img_url: 'large' }}">
+          <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+      </div>
+      
+      {% if product.images.size > 1 %}
+      <ul id="product-thumbs">
+        {% for image in product.images %}
+          <li class="{% if forloop.first %} zoomThumbActive first{% endif %}">
+            <a class="lightbox" href="{{ image | product_img_url: 'large' }}">
+              <img src="{{ image | product_img_url: 'thumb' }}" alt="{{ image.alt | escape }}">
+            </a>
+          </li>
+        {% endfor %}        
+      </ul> -->
+      {% endif %}
+      <div style="margin-bottom: 10px;">
+        {% include 'token_amount' %}
+      </div>
+      {% include 'GoogleForms' %}
+      
+    </div><!-- /#product-photos -->
+      
+    
+    
+    
+    <div id="product-details" class="right">
+      <!-- <div class="product-name">
+        <h1></h1>
+      </div> -->
+      <!-- product image here -->
+      <div class="large-thumb">
+        <a class="lightbox" href="{{ product.featured_image | product_img_url: 'large' }}">
+          <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}" style="width: 100%;"/>
+        </a>
+      </div>
+      <div style="margin:0px auto; background-color: #f0f0f0; height: 60px; padding: 10px; border-radius: 3px;">
+      {% if product.images.size > 1 %}
+      <ul id="product-thumbs" >
+        {% for image in product.images %}
+          <li class="{% if forloop.first %} zoomThumbActive first{% endif %}">
+            <a class="lightbox" href="{{ image | product_img_url: 'large' }}">
+              <img src="{{ image | product_img_url: 'thumb' }}" alt="{{ image.alt | escape }}" style="width: 54px; height: 54px;">
+            </a>
+          </li>
+        {% endfor %}        
+      </ul>
+      </div>
+      {% endif %}
+      <div style="clear: both; margin-bottom: 10px;">
+      </div>
+      
+      <!-- product image ends -->
+      <div class="description">
+        {% include 'share-list' %}
+        {{ product.description }}
+      </div>      
+    </div><!-- /#product-details -->
+
+  </div><!-- /#single-product --><br/>
+
+  <div style="min-height: 300px;">
+    {% include 'related-products' %}
+  </div>
+
+  {% if settings.product_collection_visible == true %}
+    {% if settings.product_collection_name and settings.product_collection_name != "" %}
+  
+    {% if collections[settings.product_collection_name].products.size > 0 %}
+    <!-- A collection of products -->
+    <section class="products-4up diagonal-divider">
+      <div class="section-details">
+        <h2>{{collections[settings.product_collection_name].title}}</h2>
+      </div>    
+      <table cellpadding="0" cellspacing="0" class="products-grid">
+        {% tablerow product in collections[settings.product_collection_name].products cols: 4 %}          
+          {% include 'product-grid-item' %}
+        {% endtablerow %}         
+      </table>
+    </section>
+    {% endif %}
+    
+    {% else %}
+      <p class="notice">Please select a collection of items to display here on the <a href="/admin/themes/current/settings">settings page</a>, or disable this item so it no longer appears here on the product page.</p>
+    {% endif %} 
+  {% endif %} 
+
+
+</div><!-- /.col-content -->
+
+<script type="text/javascript">
+  var inqData = {
+    product_thumb: "https:{{ product.featured_image | product_img_url: 'small' }}",
+    product_url: "{{ shop.url }}{{ product.url }}",
+    product_type: "{{ settings.site_title }} - {{ product.title }}",
+    product_title: "{{ product.title }}"
+  };
+</script>

@@ -1,0 +1,49 @@
+
+
+  /* Empty star */
+  /* Shown in New Review form as unselected */
+  .spr-icon.spr-icon-star-empty,
+  .spr-icon.spr-icon.spr-icon-star-empty {
+    background-position: 0 0;
+    opacity: 1;
+  }
+
+  /* Empty star on hover */
+  /* Displayed when user hovers mouse over an empty star in the review form */
+  .spr-icon.spr-icon-star-empty.spr-icon-star-hover {
+    background-position: 0 -18px;
+  }
+
+  /* Full star */
+  .spr-icon.spr-icon-star {
+    background-position: 0 -36px;
+  }
+
+  /* Half star */
+  /* Displayed when a rating is a half value (3.5 stars) */
+  .spr-icon.spr-icon-star-half {
+    background-position: 0 -54px;
+    opacity: 1;
+  }
+.spr-container{
+  padding: 0px !important;
+}
+.spr-header-title{
+  background-color:#f90b0e !important; 
+  margin-left: 5px; 
+  width:190px !important;
+  cursor: pointer; text-align: center; padding: 20px; color:#fff;
+    font-size: 16px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.spr-summary {
+    padding-left: 60px;
+    padding-top: 10px;
+}
+.spr-summary-actions{
+  float: left;
+}
+.spr-summary-actions-newreview {
+    float: left;
+}

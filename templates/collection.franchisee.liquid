@@ -1,0 +1,119 @@
+<div class="col-content">
+
+  <div class="productlist-wrapper condensed collection professionals collection-{{ collection.handle }}">
+    
+    <div class="productlist-header section-header">
+      <h1 class="collection-heading">{{ collection.title }}</h1>
+      <span class="filters-row">
+        {% assign current_city_name = '' %}
+        {% assign current_city = '' %}
+        {% assign current_locality_name = '' %}
+        {% assign current_locality = '' %}
+        {% assign current_city_line = '' %}
+        {% assign locality_selected = false %}
+
+        {% for tag in current_tags %}
+          {% assign splitted = tag | split: ':' %}
+          {% if tag contains 'locality' %}
+            {% assign current_locality = tag | handleize %}
+            {% assign current_locality_name = splitted[1] | strip %}
+            {% assign locality_selected = true %}
+          {% endif %}
+        {% endfor %}
+        
+        {% assign city-lines = settings.professionals_locations | split: settings.delimiter %}
+        
+        {% if locality_selected %}
+          {% for city-line in  city-lines %}
+            {% assign values = city-line | split: ':' %}
+            {% if values[1] contains current_locality_name %}
+              {% capture current_city %}city-{{ values.first | handleize }}{% endcapture %}
+              {% assign current_city_name = values.first | strip %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+        
+        <label for="franchisee-cities">Cities</label>
+        <select name="franchisee-cities" id="franchisee-cities" autocomplete="off">
+          <option value="">All</option>
+          {% for tag in collection.all_tags %}
+            {% assign splitted = tag | split: ':' %}
+            {% if tag contains 'city' %}
+            {% assign tag_handle = tag | handleize %}
+            <option value="{{ tag_handle }}" class="{{ current_city }}" {% if tag_handle == current_city %}selected{% endif %}>{{ splitted[1] | strip }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>  
+
+
+        <label for="franchisee-locations">Locations</label>
+        <select name="franchisee-locations" id="franchisee-locations" {% if current_city == '' %}disabled="disabled"{% endif %} autocomplete="off">
+          <option value="">All</option>
+          {% for tag in collection.all_tags %}
+            {% assign splitted = tag | split: ':' %}
+            {% if tag contains 'locality'%}
+              {% assign tag_handle = tag | handleize %}
+              {% assign loop_locality_name = splitted[1] | strip %}
+              {% assign city_handle = '' %}
+              {% for city-line in  city-lines %}
+                {% assign values = city-line | split: ':' %}
+                {% if values[1] contains loop_locality_name %}
+                  {% capture city_handle %}city-{{ values.first | handleize }}{% endcapture %}
+                {% endif %}
+              {% endfor %}
+              
+              <option value="{{ tag_handle }}" class="{{ city_handle }}" {% if tag_handle == current_locality %}selected{% endif %}>{{ splitted[1] | strip }}</option>
+              
+            {% endif %}
+          {% endfor %}
+        </select>  
+      </span>
+      
+    </div>
+    <div class="franchisee-info">
+      {% if locality_selected %}
+        {% paginate collection.products by 1 %}
+          {% assign data = collection.products[0].description | strip_html | strip | split: settings.delimiter %}
+          {% assign email = '' %}{% assign phone = '' %}{% assign map = '' %}
+          {% for item in data %}
+            {% assign values = item | split: ':' %}
+            {% assign key = values[0] | strip %}
+            {% assign value = values[1] | strip %}
+            {% if key == 'map' %}{% assign map = value %}{% endif %}
+            {% if key == 'email' %}{% assign email = value %}{% endif %}
+            {% if key == 'phone' %}{% assign phone = value %}{% endif %}
+          {% endfor %}
+          <div class="fr-details">
+            <h3 class="franchisee-headline"><span style="font-variant: small-caps;">In-Focus Infocenter</span> - {{ current_locality_name }}, {{ current_city_name }}</h3>
+            <span class="btn inquiry-btn"><img src="{{'mail-icon.png'|asset_url}}" />&nbsp;&nbsp;Send Inquiry</span>
+            <span class="phone">
+              <span class="element">
+                <img class="small-icon" src="{{'phone-icon.png'|asset_url}}" />
+              </span>
+              <span class="element numbers">
+                {% assign nos = phone | split: ',' %}
+                {% for no in nos %}
+                  {{ no | strip }}<br />
+                {% endfor %}                
+              </span>
+            </span>
+          </div>
+          <div class="map"><iframe src="https:{{map}}" width="600" height="450" frameborder="0"></iframe></div>
+        {% endpaginate %}
+      {% else %}    
+        <strong>Please choose a city and locality for the nearest Info Center</strong>
+      {% endif %}
+    </div>
+  </div>
+</div>
+  
+<div class="col-browse">
+  {% include 'left-col-nav' %}
+  {% include 'left-col-social' %}    
+  {% include 'left-col-ads' %}
+</div><!-- /#col-browse -->
+
+<script type="text/javascript">
+  var COLLECTION_URL = "{{ collection.url }}";
+</script>

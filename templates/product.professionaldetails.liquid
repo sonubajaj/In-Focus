@@ -1,0 +1,18 @@
+<div class="col-content">
+    <div class="professionals">
+        {% include 'professionals-row' with 'product' %}
+    </div>    
+</div>
+
+<div class="col-browse">
+  {% include 'left-col-nav' %}
+  {% include 'left-col-social' %}  
+  {% include 'left-col-ads' %}
+</div><!-- /#col-browse -->
+
+
+<script type="text/javascript">
+  var inquiryData = {
+    inquiry_type: "{{ product.collections[0].title }}"
+  };
+</script>

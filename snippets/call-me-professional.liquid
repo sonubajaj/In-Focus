@@ -1,0 +1,17 @@
+<div style="margin-top: 60px; background-color:#f90b0e;">
+  <div class="professional-main-heading" style="cursor: pointer; padding: 20px; color:#fff; border-radius: 5px;" id="clickme">
+     <i class="fa fa-phone-square" style="color:#fff; " ></i>&nbsp;&nbsp;Click to Call Me
+  </div>
+  <div style="min-height: 10px; padding: 15px; text-align: center; font-size: 23px; font-weight: bold; background-color:#e0e0e0; margin-top: -5px;" id="display-callme" class="displaynone">
+    <!-- professional google form starts -->
+       {% if IVR != blank %}
+           {{ IVR }}
+       {% endif %}
+       {% if IVR == blank %}
+          <div>
+            NA
+          </div>
+       {% endif %}
+    <!-- professional google form ends -->
+  </div>
+</div>

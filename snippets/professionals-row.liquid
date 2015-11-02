@@ -1,0 +1,118 @@
+
+{% assign email = '' %}
+{% assign dob1 = '' %}
+{% assign ivr = '' %}
+{% assign enquiryemail = '' %}
+{% assign facebook_link = '' %}
+{% assign linkedin_link = '' %}
+{% assign twitter_link = '' %}
+{% assign fullname = '' %}
+{% assign established = '' %}
+{% assign legalstatus = '' %}
+{% assign services = '' %}
+{% assign expertise = '' %}
+{% assign languages = '' %}
+{% assign phone = '' %}
+{% assign address = '' %}
+{% assign about = '' %}
+{% assign area1 = '' %}
+{% assign area2 = '' %}
+{% assign area3 = '' %}
+{% assign area4 = '' %}
+{% assign website = '' %}
+{% assign qualification = '' %}
+{% assign bs = '' %}
+{% assign rating = '' %}
+{% for tag in product.tags %}
+ 
+{% if tag contains 'email:' %}{% assign tag_data = tag | split: ':'%}{% assign email = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'enquiryemail:' %}{% assign tag_data = tag | split: ':'%}{% assign enquiryemail = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'bs:' %}{% assign tag_data = tag | split: ':'%}{% assign bs = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'facebook' %}{% assign tag_data = tag | split: ':'%}{% assign facebook_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'linkedin' %} {% assign tag_data = tag | split: ':'%}{% assign linkedin_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'twitter' %}{% assign tag_data = tag | split: ':'%}{% assign twitter_link = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'fullname' %}{% assign tag_data = tag | split: ':'%}{% assign fullname = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'established' %}{% assign tag_data = tag | split: ':'%}{% assign established = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'services' %}{% assign tag_data = tag | split: ':'%}{% assign services = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'expertise' %}{% assign tag_data = tag | split: ':'%}{% assign expertise = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'languages' %}{% assign tag_data = tag | split: ':'%}{% assign languages = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'phone' %}{% assign tag_data = tag | split: ':'%}{% assign phone = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'address' %}{% assign tag_data = tag | split: ':'%}{% assign address = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'about' %}{% assign tag_data = tag | split: ':'%}{% assign about = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'rating' %}{% assign tag_data = tag | split: ':'%}{% assign rating = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'legalstatus' %}{% assign tag_data = tag | split: ':'%}{% assign legalstatus = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'qualification' %}{% assign tag_data = tag | split: ':'%}{% assign qualification = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'area1' %}{% assign tag_data = tag | split: ':'%}{% assign area1 = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'area2' %}{% assign tag_data = tag | split: ':'%}{% assign area2 = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'area3' %}{% assign tag_data = tag | split: ':'%}{% assign area3 = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'area4' %}{% assign tag_data = tag | split: ':'%}{% assign area4 = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'website' %}{% assign tag_data = tag | split: ':'%}{% assign website = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'dob1' %}{% assign tag_data = tag | split: ':'%}{% assign dob1 = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'ivr' %}{% assign tag_data = tag | split: ':'%}{% assign ivr = tag_data[1] | strip %}{% endif %}
+
+{% endfor %}
+
+
+  <!-- {% if product.images[1] != blank %}
+    <div class="logo">
+      <img src="{{ product.images[1] | product_img_url: "small" }}" alt="{{ product.featured_image.alt | escape }}" />
+    </div>
+  {% endif %} -->
+  <div class="profile-image" style="padding: 5px;">
+    <img src="{{ product.images[0] | product_img_url: "compact" }}" alt="{{ product.featured_image.alt | escape }}" />
+    {% if fullname != blank %}
+      <div class="profile-image-name" style="backgroud-color: #f90b0e; padding: 5px; border-radius: 3px; text-align: center;">{{ fullname }}</div>
+    {% endif %}
+    <!-- rating starts here -->
+      {% include 'rating-professional' %}
+      <!-- rating ends here -->
+  </div>
+     <!-- professional profile info starts -->
+       {% include 'professional-profile-info' %}
+	 <!-- professional profile info ends -->
+   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ 
+ <script type="text/javascript">
+  $(function() {
+    $( "#show-option" ).tooltip({
+      show: {
+        effect: "slideDown",
+        delay: 250
+      }
+    });
+
+    $( "#open-event" ).tooltip({
+      show: null,
+      position: {
+        my: "left top",
+        at: "left bottom"
+      },
+      open: function( event, ui ) {
+        ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+      }
+    });
+  });
+  </script>

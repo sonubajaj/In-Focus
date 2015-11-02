@@ -1,0 +1,42 @@
+<div class="col-content">
+
+  <div class="productlist-wrapper collection collection-{{ collection.handle }}">
+
+    <div class="productlist-header section-header clearfix">
+      <h1 class="collection-heading" style="font-size: 15px;">{{ collection.title }}</h1>
+      {% include 'collection-filters' %}
+    </div>
+    {{ collection.description }}
+
+    {% paginate collection.products by 9 %}
+      {% if collection.products.size > 0 %}
+
+        <ul class="thumbgrid semi-condensed clearfix">
+          {% for product in collection.products %}
+            <li{% cycle '', '', ' class="last-in-row"' %}>
+              <div class="product-photo"><a href="{{ product.url | within: collection }}"><img src="{{ product.images[0] | product_img_url: "medium" }}" alt="{{ product.featured_image.alt | escape }}" /></a></div>
+              {% include 'product-desc' %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+
+      {% else %}
+        <strong>No products found in this collection.</strong>
+      {% endif %}
+    {% endpaginate %}
+
+  </div>
+</div>
+
+<div class="col-browse">
+  {% include 'left-col-nav' %}
+  {% include 'left-col-social' %}
+  {% include 'left-col-ads' %}
+</div><!-- /#col-browse -->
+<script type="text/javascript">
+  var COLLECTION_URL = "{{ collection.url }}";
+</script>

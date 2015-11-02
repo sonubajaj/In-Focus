@@ -1,0 +1,23 @@
+{% assign current_selected = '' %}
+{% for tag in current_tags %}
+    {% if tag contains dynamic-filter %}
+    {% assign current_selected = tag | handleize %}
+    {% endif %}
+{% endfor %}
+
+{% assign tags_already_added = '' %}
+<select class="filter" autocomplete="off">
+  <option value="">All</option>
+  {% for tag in collection.all_tags %}
+    {% assign splitted = tag | split: ':' %}
+    {% assign tag_type = splitted[0] | handleize %}
+    {% assign tag_handle = tag | handleize %}
+    {% if tag_type == dynamic-filter %}
+    {% if tags_already_added contains tag_handle %}
+      {% continue %}
+    {% endif %}
+    {% capture tags_already_added %}{{ tags_already_added }},{{ tag_handle }}{% endcapture %}
+    <option value="{{ tag_handle }}" {% if tag_handle == current_selected %}selected{% endif %}>{{ splitted[1] | strip }}</option>
+    {% endif %}
+  {% endfor %}
+</select>

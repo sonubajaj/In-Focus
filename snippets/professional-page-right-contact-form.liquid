@@ -1,0 +1,50 @@
+<div >
+  <!-- call me panel starts -->
+     <div>
+       {% include 'call-me-professional' %}
+     </div>
+  <!-- call me panel ends -->
+  <!-- contact form panel starts -->
+     <div style="background-color:#e0e0e0;">
+       {% include 'contact-form-professional' %}
+     </div>
+  <!-- contact form panel ends -->
+  <!-- social media links starts -->
+     <div style="clear: both; margin-top: 27px;">
+      {% include 'social-media-professional' %}
+     </div>
+  <!-- social media links ends -->
+  <!-- social media links starts -->
+     <div style="clear: both; margin-top: 27px;">
+      {% include 'social-share-professional' %}
+     </div>
+  <!-- social media links ends -->
+  <!-- social media links starts -->
+     <div style="clear: both; margin-top: 27px;">
+      {% include 'company-rating-professional' %}
+     </div>
+  <!-- social media links ends -->
+  <!-- social media links starts -->
+  <div style="margin-top: 20px; background-color:#f90b0e; margin-left: 5px; width:230px; clear: both; margin-bottom: 20px;">
+  <div class="professional-main-heading" style="cursor: pointer; text-align: center; padding: 20px; font-size: 14px; color:#fff; border-radius: 5px;">
+     <i class="fa fa-smile-o" style="color:#fff;"></i>&nbsp;&nbsp;Customer Reviews
+  </div>
+  
+  <div style="min-height: 20px; padding: 15px; text-align: center; font-size: 23px; font-weight: bold; background-color:#e0e0e0; margin-top: -5px;">
+     <div style="clear: both; margin-top: 27px;">
+      <!-- <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> -->
+      <div class="yotpo yotpo-main-widget"
+    data-product-id="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}">
+</div>
+     </div>
+    </div>
+    <div style="clear: both;">
+    </div>
+  <!-- social media links ends -->
+</div>
+  <div style="clear: both;">
+    </div>

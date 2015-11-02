@@ -1,0 +1,250 @@
+<a name="businessprofile">
+            	<div style="width: 698px; min-height: 220px;">
+                   <div class="professional-main-heading">
+                     <i class="fa fa-black-tie" style="color:#f90b0e"></i>&nbsp;&nbsp;Business Profile
+                    </div>
+                   <!-- about content starts -->
+                   <div style="border:1px solid #e0e0e0; min-height: 320px; margin-bottom: 10px; margin-top: 10px;">
+                     <!-- left panel starts -->
+                      <div style="width: 370px; border-right: 1px solid #e0e0e0; min-height: 320px; float: left;">
+                          <!-- about me panel -->
+                            <div style="padding: 10px; min-height: 50px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                   About my Business
+                               </div>
+                               <div style="margin-left: 8px; margin-top: 5px; min-height: 70px;" class="firsttext professional-content" class="">
+                                  {% if businessinfo != blank %}
+                            		{{ businessinfo }}
+                                  {% endif %}
+                                  {% if businessinfo == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                            <!-- dealin starts -->
+                            <div style="clear: both; padding: 5px; min-height: 30px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 10px;">
+                                   Deals In
+                               </div>
+                               <div style="margin-left: 13px; margin-top: 5px; min-height: 45px;" class="professional-content">
+                                  {% assign attribute_keyword = 'dealsin:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                  {% if dealsin == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                            <!-- dealsin ends -->
+                           <!-- dealin starts -->
+                            <div style="clear: both; padding: 5px; min-height: 30px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 10px;">
+                                   Area we Deals In
+                               </div>
+                               <div style="margin-left: 13px; margin-top: 5px; min-height: 40px;" class="firsttext professional-content">
+                                  {% assign attribute_keyword = 'adi:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                  {% if area == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                            <!-- dealsin ends -->
+                        <!-- about me panel ends -->
+                      </div>
+                     <!-- left panel ends -->
+                     <!-- right panel starts -->
+                      <div style="width: 320px; min-height: 300px; float: left;">
+                          <!-- top content -->
+                          <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px; min-height: 150px;">
+                             <div style="float: left; width: 150px; min-height: 150px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                    Legal Status
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if legalstatus != blank %}
+                                        {{ legalstatus }}
+                                      {% endif %}
+                                      {% if legalstatus == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Partners
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% assign attribute_keyword = 'partners:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                      {% if partners == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Office Address
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if address != blank %}
+                                        {{ address }}
+                                      {% endif %}
+                                      {% if address == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Office Timings
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if timing != blank %}
+                                        {{ timing }}
+                                      {% endif %}
+                                      {% if timing == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                             </div>
+                            <!-- float right starts -->
+                            <div style="float: left; width: 150px; min-height: 150px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Established
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if established != blank %}
+                                       <!-- tags add starts -->
+                                         {{ established }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if established == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     No. of Staff
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      <!-- prof tag starts -->
+                                         {% if no_staff != blank %}
+                                       <!-- tags add starts -->
+                                         {{ no_staff }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if no_staff == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                              <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     No. of Offices
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if no_office != blank %}
+                                       <!-- tags add starts -->
+                                         {{ no_office }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if no_office == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                              <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Weekly Off
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="firsttext professional-content">
+                                      {% if weekly_off != blank %}
+                                       <!-- tags add starts -->
+                                         {{ weekly_off }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if weekly_off == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                             </div>
+                            <!-- float right ends -->
+                            <div style="clear: both;">
+                            </div>
+                          </div>
+                        <!-- top content ends -->
+                      </div>
+                     <!-- right panel ends -->
+                   </div>
+                  <!-- about content ends -->
+                </div>
+            </a>

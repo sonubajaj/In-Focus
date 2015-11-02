@@ -1,0 +1,451 @@
+<div id="footer-wrapper">
+    <div id="footer" class="wrapper clearfix">
+
+      <div class="join-newsletter footer-col">
+        <h3>Join our Mailing List</h3>
+        {% form 'customer' %}
+
+          {% if form.posted_successfully? %}
+            <p class="success-msg">Thanks for joining!</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <p class="error-msg">
+            {% for field in form.errors %}
+              {{ field }} - {{ form.errors.messages[field] }}
+            {% endfor %}
+            </p>
+          {% endif %}
+
+          <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,newsletter"/>
+          <div id="newsletter-signup">
+            <input type="hidden" id="newsletter-first-name" name="contact[first_name]" value="Subscriber" />
+            <input type="hidden" id="newsletter-last-name" name="contact[last_name]" value="Newsletter" />
+            <label for="newsletter-email">Email address:</label>
+            <input type="email" class="email" id="newsletter-email" name="contact[email]" />
+            <input type="submit" class="submit btn" value="Join" />
+                                 <div class='container1'>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+          <div id='row'><a href="http://www.facebook.com/"  target="_blank"><i class='icon-facebook'></i></a>
+            <a href="http://www.linkdin.com/" style="padding-left:10px" target="_blank"><i class='icon-linkedin'></i></a>
+           <a href="http://instagram.com/" style="padding-left:10px" target="_blank"> <i class='icon-instagram'></i></a>
+              <a href="https://twitter.com" style="padding-left:10px" target="_blank">  <i class='icon-twitter'></i></a>
+            
+          </div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+  <div class='row' style="display:none" ><i class='icon-facebook'></i><i class='icon-twitter'></i><i class='icon-googleplus'></i><i class='icon-pinterest'></i><i class='icon-dribbble'></i></div>
+</div>
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="footer-linklists footer-col">
+        {% include 'footer-linklist' with settings.footer_linklist_1 %}
+        {% include 'footer-linklist' with settings.footer_linklist_2 %}
+        {% include 'footer-linklist' with settings.footer_linklist_3 %}
+      </div>
+      <div style="clear: both;">
+          <div style="border-top: 2px dotted #999; margin-top: -20px;">
+          </div>
+      </div>
+      <div id="main" class="wrapper clearfix">
+        <div style="margin-top: 20px;">
+            It is a Unique Business Model which organizes the Real Estate Transaction, it addresses the concerns of all the parties involved in any transactions and helps them to handle the operations and dealings seamlessly to grow fast and steadily. It provides an organised platform to both online & offline  buyers / Sellers to deal with Trained, Experienced, Verified & Rated professionals.
+        </div>
+      </div>
+      <div style="clear: both;">
+        
+      </div>
+      <div style="border-top: 2px dotted #999; margin-top: 20px;">
+      </div>
+      <div class="footer-text footer-col" style="margin-top: 20px;">
+        <p>{{ settings.footer_txt | newline_to_br }}</p>         
+   
+      </div>
+
+
+
+    {% if settings.show_amex or settings.show_discover or settings.show_visa or settings.show_mastercard or settings.show_maestro or settings.show_cirrus or settings.show_paypal or settings.show_google or settings.show_bitcoin %}
+    <div id="footer-payment-methods">
+      <p>Payment methods we accept</p>
+      {% if settings.show_amex %}       {{ 'cc-amex.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_discover %}   {{ 'cc-discover.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_visa %}       {{ 'cc-visa.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_mastercard %} {{ 'cc-mastercard.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_maestro %}    {{ 'cc-maestro.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_cirrus %}     {{ 'cc-cirrus.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_paypal %}     {{ 'cc-paypal.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_google %}     {{ 'cc-google.png' | asset_url | img_tag }} {% endif %}
+      {% if settings.show_bitcoin %}    {{ 'cc-bitcoin.png' | asset_url | img_tag }} {% endif %}
+    </div>
+    {% endif %}
+
+    </div><!-- /#footer -->
+  </div><!-- /#footer-wrapper -->
+
+  {% unless template == 'cart' %}
+  <script type="text/javascript">
+(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/b0WcjhFlNwmeBOvdqKT1ihf2tEs7yu7rP04LziQK/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+
+  {{ 'jquery.colorbox-min.js' | asset_url | script_tag }}
+  {{ 'jquery.chained.min.js' | asset_url | script_tag }}
+  {{ 'jquery.hoverintent.js' | asset_url | script_tag }}
+  {{ 'jquery.tools.min.js' | asset_url | script_tag }}
+  {{ 'facebox.js' | asset_url | script_tag }}
+
+  {%if product %}
+    <script>
+     
+    {% if product.available %}
+    var selectCallback = function(variant, selector) {
+      if (variant && variant.available == true) {
+        // selected a valid variant
+        $('#add-to-cart').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+        if(variant.compare_at_price == null){
+          $('.options .price').html('<strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}")+'</strong><span class="compare_at_price" style="visibility:hidden">was not</span>');
+        } else {
+          $('.options .price').html('<strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}") + '</strong> <span class="compare_at_price">was <del>' + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_with_currency_format}}") + '</del></span>');
+        }
+      } else {
+        // variant doesn't exist
+        $('#add-to-cart').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+        var message = variant ? "Sold Out" : "Unavailable";
+        $('.options .price').text(message); // update price-field message
+      }
+    };
+
+    // initialize multi selector for product
+    $(function() {
+      new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+      {% assign found_one_in_stock = false %}
+
+      {% for variant in product.variants %}
+        {% if variant.available and found_one_in_stock == false %}
+          {% assign found_one_in_stock = true %}
+          {% for option in product.options %}
+          $('.single-option-selector:eq(' + {{ forloop.index0 }} + ')').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+    });
+    {% endif %}
+
+
+    $('.lightbox').facebox({
+      loadingImage: '{{ "loading.gif" | asset_url }}',
+      closeImage:  '{{ "closelabel.png" | asset_url }}'
+    });
+    </script>
+
+    <!-- fb like button -->
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- +1 button -->
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+    <!-- tweet btn -->
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+  {% endif %}
+
+
+
+  {{ 'theme.js' | asset_url | script_tag }}
+  {{ 'custom.js' | asset_url | script_tag }}
+
+  {% endunless %}
+
+  
+   {{ 'Header.css' | asset_url | stylesheet_tag }}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.js"></script>
+<script>// <![CDATA[
+$(document).ready(function() {
+        $('ul.tabs').each(function(){
+          var active, content, links = $(this).find('a');
+          active = links.first().addClass('active');
+          content = $(active.attr('href'));
+          links.not(':first').each(function () {
+            $($(this).attr('href')).hide();
+          });
+          $(this).find('a').click(function(e){
+            active.removeClass('active');
+            content.hide();
+            active = $(this);
+            content = $($(this).attr('href'));
+            active.addClass('active');
+            content.show();
+            return false;
+          });
+        });
+      
+        var index = 0;
+        var adtimer;
+        var _wrap = $("#container ol"); //
+        var len = $("#container ol li").length;
+        //len=1;
+        if (len > 1) {
+            $("#container").hover(function() {
+                clearInterval(adtimer);
+            },
+            function() {
+                adtimer = setInterval(function() {
+
+                    var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+                    var _h = _field.height(); //取得每次滚动高度(多行滚动情况下,此变量不可置于开始处,否则会有间隔时长延时)
+                    _field.animate({
+                        marginTop: -_h + 'px'
+                    },
+                    500,
+                    function() { //通过取负margin值,隐藏第一行
+                        _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+                    })
+
+                },
+                5000);
+            }).trigger("mouseleave");
+            function showImg(index) {
+                var Height = $("#container").height();
+                $("#container ol").stop().animate({
+                    marginTop: -_h + 'px'
+                },
+                1000);
+            }
+
+            $("#container").mouseover(function() {
+                $("#container .mouse_direction").css("display", "block");
+            });
+            $("#container").mouseout(function() {
+                $("#container .mouse_direction").css("display", "none");
+            });
+        }
+
+        $("#container").find(".mouse_top").click(function() {
+            var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+            var last = _wrap.find('li:last'); //此变量不可放置于函数起始处,li:last取值是变化的
+            //last.prependTo(_wrap);
+            var _h = last.height();
+            $("#container ol").css('marginTop', -_h + "px");
+            last.prependTo(_wrap);
+            $("#container ol").animate({
+                marginTop: 0
+            },
+            500,
+            function() { //通过取负margin值,隐藏第一行
+                //$("#container ol").css('marginTop',0).prependTo(_wrap);//隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        });
+        $("#container").find(".mouse_bottom").click(function() {
+            var _field = _wrap.find('li:first'); //此变量不可放置于函数起始处,li:first取值是变化的
+            var _h = _field.height();
+            _field.animate({
+                marginTop: -_h + 'px'
+            },
+            500,
+            function() { //通过取负margin值,隐藏第一行
+                _field.css('marginTop', 0).appendTo(_wrap); //隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        });
+         
+        
+        var id = '#dialog';
+	
+		//Get the screen height and width
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		//Set heigth and width to mask to fill up the whole screen
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		
+		//transition effect		
+		$('#mask').fadeIn(500);	
+		$('#mask').fadeTo("slow",0.9);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		//Set the popup window to center
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		//transition effect
+		$(id).fadeIn(2000); 	
+	
+	//if close button is clicked
+	$('.window .close').click(function (e) {
+		//Cancel the link behavior
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	//if mask is clicked
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});	 
+  $('#getprofessionals').click(function(e)
+	{
+      $('#profess').removeClass('displaynone').fadeIn(400);
+      $('#getprofessionals').removeClass('tabbutton').addClass('tabbuttonactive').fadeIn(400);
+      $('#browseprojects').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#connectdirectly').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#browse').addClass('displaynone');
+      $('#connect').addClass('displaynone');
+      $("#display_image").removeClass('banner-panel-connect').removeClass('banner-panel-browse').addClass('banner-panel-professional').fadeIn(400);
+    return false;
+	});
+  $('#browseprojects').click(function(e)
+	{
+      $('#browse').removeClass('displaynone').fadeIn(400);
+      $('#browseprojects').removeClass('tabbutton').addClass('tabbuttonactive').fadeIn(400);
+      $('#getprofessionals').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#connectdirectly').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#profess').addClass('displaynone');
+      $('#connect').addClass('displaynone');
+     $("#display_image").removeClass('banner-panel-connect').removeClass('banner-panel-professional').addClass('banner-panel-browse').fadeIn(400);
+    return false;
+	});
+  $('#connectdirectly').click(function(e)
+	{
+      $('#connect').removeClass('displaynone').fadeIn(400);
+      $('#connectdirectly').removeClass('tabbutton').addClass('tabbuttonactive').fadeIn(400);
+      $('#getprofessionals').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#browseprojects').removeClass('tabbuttonactive').addClass('tabbutton').fadeIn(400);
+      $('#browse').addClass('displaynone');
+      $('#profess').addClass('displaynone');
+     $("#display_image").removeClass('banner-panel-professional').removeClass('banner-panel-browse').addClass('banner-panel-connect').fadeIn(400);
+    return false;
+	});
+  
+  $('#clickme').click(function(e)
+	{
+      $('#display-callme').removeClass('displaynone').fadeIn(400);
+    return false;
+	});
+  });
+  (function($) {
+  $.fn.countTo = function(options) {
+    options = options || {};
+
+    return $(this).each(function() {
+      // set options for current element
+      var settings = $.extend({}, $.fn.countTo.defaults, {
+        from: $(this).data('from'),
+        to: $(this).data('to'),
+        speed: $(this).data('speed'),
+        refreshInterval: $(this).data('refresh-interval'),
+        decimals: $(this).data('decimals')
+      }, options);
+
+      // how many times to update the value, and how much to increment the value on each update
+      var loops = Math.ceil(settings.speed / settings.refreshInterval),
+        increment = (settings.to - settings.from) / loops;
+
+      // references & variables that will change with each update
+      var self = this,
+        $self = $(this),
+        loopCount = 0,
+        value = settings.from,
+        data = $self.data('countTo') || {};
+
+      $self.data('countTo', data);
+
+      // if an existing interval can be found, clear it first
+      if (data.interval) {
+        clearInterval(data.interval);
+      }
+      data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+      // initialize the element with the starting value
+      render(value);
+
+      function updateTimer() {
+        value += increment;
+        loopCount++;
+
+        render(value);
+
+        if (typeof(settings.onUpdate) == 'function') {
+          settings.onUpdate.call(self, value);
+        }
+
+        if (loopCount >= loops) {
+          // remove the interval
+          $self.removeData('countTo');
+          clearInterval(data.interval);
+          value = settings.to;
+
+          if (typeof(settings.onComplete) == 'function') {
+            settings.onComplete.call(self, value);
+          }
+        }
+      }
+
+      function render(value) {
+        var formattedValue = settings.formatter.call(self, value, settings);
+        $self.html(formattedValue);
+      }
+    });
+  };
+
+  $.fn.countTo.defaults = {
+    from: 0, // the number the element should start at
+    to: 0, // the number the element should end at
+    speed: 1000, // how long it should take to count between the target numbers
+    refreshInterval: 100, // how often the element should be updated
+    decimals: 0, // the number of decimal places to show
+    formatter: formatter, // handler for formatting the value before rendering
+    onUpdate: null, // callback method for every time the element is updated
+    onComplete: null // callback method for when the element finishes updating
+  };
+
+  function formatter(value, settings) {
+    return value.toFixed(settings.decimals);
+  }
+}(jQuery));
+
+jQuery(function($) {
+  // custom formatting example
+  $('#count-number').data('countToOptions', {
+    formatter: function(value, options) {
+      return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+    }
+  });
+
+  // start all the timers
+  $('.timer').each(count);
+
+  function count(options) {
+    var $this = $(this);
+    options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+    $this.countTo(options);
+  }
+});
+// ]]></script>
+  
+  

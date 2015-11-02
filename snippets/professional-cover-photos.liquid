@@ -1,0 +1,35 @@
+<a name="photos">
+            	<div style="width: 700px; min-height: 300px;">
+                   <div class="professional-main-heading">
+                     <i class="fa fa-picture-o" style="color:#f90b0e"></i>&nbsp;&nbsp;Photos
+                    </div>
+                     <div style="padding: 10px; min-height: 200px; margin-top: 10px; color:#000;">
+                       	<!-- wrapper starts -->
+                          <div class="infopic">
+	<div class="picbox">
+		<ul class="gallery piclist">
+			{% if product.images.size > 1 %}
+             {% for image in product.images %}
+			<li>
+              <a href="#" rel="prettyPhoto[]">
+                <img src="{{ image | product_img_url: 'medium' }}" style="width: 267px; height: 200px;"/>
+              </a>
+            </li>
+		    {% endfor %} 
+            {% endif %}
+      </ul>
+	</div>
+	<div class="pic_prev"></div>
+	<div class="pic_next"></div>
+</div>				
+
+<script type="text/javascript">
+$(document).ready(function(){	
+	$("area[rel^='prettyPhoto']").prettyPhoto();
+	$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+})
+</script>
+                       <!-- wrapper ends -->
+                     </div>
+                </div>
+            </a> 

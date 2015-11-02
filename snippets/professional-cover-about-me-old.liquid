@@ -1,0 +1,182 @@
+<a name="aboutme">
+            	<div style="width: 698px; min-height: 300px;">
+                   <div class="professional-main-heading">
+                     About Me
+                    </div>
+                   <!-- about content starts -->
+                   <div style="border:1px solid #e0e0e0; min-height: 300px; margin-bottom: 10px; margin-top: 10px;">
+                     <!-- left panel starts -->
+                      <div style="width: 370px; border-right: 1px solid #e0e0e0; min-height: 300px; float: left;">
+                          <!-- about me panel -->
+                            <div style="padding: 10px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                   About me
+                               </div>
+                               <div style="margin-left: 8px; margin-top: 5px; height: 155px;" class="professional-content">
+                                  {% if about != blank %}
+                            		{{ about }}
+                                  {% endif %}
+                                  {% if about == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                            <div style="padding: 10px;">
+                               <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                   Languages I Know
+                               </div>
+                               <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                  {% if languages != blank %}
+                            		{{ languages }}
+                                  {% endif %}
+                                  {% if languages == blank %}
+                                    <div>
+                                      NA
+                                  </div>
+                                  {% endif %}
+                               </div>
+                            </div>
+                          <!-- about me panel ends -->
+                      </div>
+                     <!-- left panel ends -->
+                     <!-- right panel starts -->
+                      <div style="width: 320px; min-height: 300px; float: left;">
+                         <!-- top content -->
+                          <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px; min-height: 200px;">
+                             <div style="float: left; width: 150px; height: 200px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Full Name
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if fullname != blank %}
+                                        {{ fullname }}
+                                      {% endif %}
+                                      {% if fullname == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     DOB
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if dob != blank %}
+                                        {{ dob }}
+                                      {% endif %}
+                                      {% if dob == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                               <!-- qualification starts -->
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Qualification
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if qualification != blank %}
+                                        {{ qualification }}
+                                      {% endif %}
+                                      {% if qualification == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- qualification ENDS -->
+                             </div>
+                            <!-- float right starts -->
+                            <div style="float: left; width: 150px; height: 200px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     IVR No.
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if ivr != blank %}
+                                        {{ ivr }}
+                                      {% endif %}
+                                      {% if ivr == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- dob starts 
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     DOB
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if dob != blank %}
+                                        {{ dob }}
+                                      {% endif %}
+                                      {% if dob == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- DOB ENDS -->
+                               <!-- qualification starts 
+                               <div style="clear: both;">
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     Qualification
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if qualification != blank %}
+                                        {{ qualification }}
+                                      {% endif %}
+                                      {% if qualification == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                               <!-- qualification ENDS -->
+                             </div>
+                            <!-- float right ends -->
+                            <!-- float bottom starts -->
+                            <div style="clear: both;">
+                            </div>
+                            <div style="border-top:1px dotted #e0e0e0; margin: 5px;"> 
+                            </div>
+                            <div style="float: left; height: 100px;">
+                               	 <div>
+                                   <div class="professional-heading" style="margin-top: 5px; margin-left: 5px;">
+                                     E-Mail
+                                   </div>
+                                   <div style="margin-left: 8px; margin-top: 5px; min-height: 35px;" class="professional-content">
+                                      {% if email != blank %}
+                                        {{ email }}
+                                      {% endif %}
+                                      {% if email == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+                                   </div>
+                                 </div>
+                             </div>
+                            <!-- float bottom ends -->
+                          </div>
+                        <!-- top content ends -->
+                      </div>
+                     <!-- right panel ends -->
+                   </div>
+                  <!-- about content ends -->
+                </div>
+            </a>

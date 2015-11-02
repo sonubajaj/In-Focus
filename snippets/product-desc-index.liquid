@@ -1,0 +1,18 @@
+<div class="product-desc">
+  <h3 class="product-title">
+    <a href="{{ product.url | within: collection }}">{{ product.title | escape | truncate: 35 }}</a>
+  </h3>
+  <!-- <p class="property-info">
+    {% include 'tag-values' with 'bhk-multiple' %}
+  </p> -->
+  
+  <p class="product-price">
+    {% include 'tag-values' with 'actual-price' %}
+    <span class="btn inquiry-btn" style="float: right; margin-right: 10px;"><a href="{{ product.url | within: collection }}" style="color:#fff;">Details</a></span>
+</p>
+  <p class="property-info property-info-location" style="position: absolute; ">
+    {% include 'tag-values' with 'locality' %},
+    {% include 'tag-values' with 'city' %}
+  </p>
+
+</div>

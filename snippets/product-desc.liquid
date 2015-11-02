@@ -1,0 +1,33 @@
+{% if product.tags contains 'offer' %}
+  <div class="ribbon-wrapper-blue"><div class="ribbon-blue">OFFER</div></div>
+{% endif %}
+{% if product.tags contains 'hot-property' %}
+    <div class="wrapper">
+       <div class="ribbon-wrapper-red"><div class="ribbon-red">HOT</div></div>
+    </div>
+    <!-- <div class="star criteria-tag">{{ 'tick2.png' | asset_url | img_tag }}</div> -->
+{% endif %}
+{% if product.tags contains 'sale-property' %}
+    <div class="wrapper">
+       <div class="ribbon-wrapper-green"><div class="ribbon-green">NEW</div></div>
+    </div>
+    <!-- <div class="star criteria-tag">{{ 'tick2.png' | asset_url | img_tag }}</div> -->
+{% endif %}
+<div class="product-desc">
+  <h3 class="product-title">
+    <a href="{{ product.url | within: collection }}">{{ product.title | escape | truncate: 35 }}</a>
+  </h3>
+  <p class="property-info">
+    {% include 'tag-values' with 'bhk-multiple' %}
+  </p>
+  
+  <p class="product-price">
+    {% include 'tag-values' with 'actual-price' %}
+    <span class="btn inquiry-btn" style="float: right; margin-right: 10px;"><a href="{{ product.url | within: collection }}" style="color:#fff;">Details</a></span>
+</p>
+  <p class="property-info property-info-location" style="position: absolute; ">
+    {% include 'tag-values' with 'locality' %},
+    {% include 'tag-values' with 'city' %}
+  </p>
+
+</div>

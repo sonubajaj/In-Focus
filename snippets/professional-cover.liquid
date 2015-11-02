@@ -1,0 +1,319 @@
+{% assign rating = '' %}
+{% for tag in product.tags %}
+{% if tag contains 'email:' %}{% assign tag_data = tag | split: ':'%}{% assign email = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'enquiryemail:' %}{% assign tag_data = tag | split: ':'%}{% assign enquiryemail = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'bs:' %}{% assign tag_data = tag | split: ':'%}{% assign bs = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'facebook' %}{% assign tag_data = tag | split: ':'%}{% assign facebook_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'linkedin' %} {% assign tag_data = tag | split: ':'%}{% assign linkedin_link = tag_data[1] | strip %}{% endif %}
+
+ {% if tag contains 'twitter' %}{% assign tag_data = tag | split: ':'%}{% assign twitter_link = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'fullname' %}{% assign tag_data = tag | split: ':'%}{% assign fullname = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'established' %}{% assign tag_data = tag | split: ':'%}{% assign established = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'services' %}{% assign tag_data = tag | split: ':'%}{% assign services = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'expertise' %}{% assign tag_data = tag | split: ':'%}{% assign expertise = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'languages' %}{% assign tag_data = tag | split: ':'%}{% assign languages = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'phone' %}{% assign tag_data = tag | split: ':'%}{% assign phone = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'address' %}{% assign tag_data = tag | split: ':'%}{% assign address = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'about' %}{% assign tag_data = tag | split: ':'%}{% assign about = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'rating' %}{% assign tag_data = tag | split: ':'%}{% assign rating = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'legalstatus' %}{% assign tag_data = tag | split: ':'%}{% assign legalstatus = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'qualification' %}{% assign tag_data = tag | split: ':'%}{% assign qualification = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'area' %}{% assign tag_data = tag | split: ':'%}{% assign area = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'website' %}{% assign tag_data = tag | split: ':'%}{% assign website = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'video_youtube' %}{% assign tag_data = tag | split: ':'%}{% assign video_youtube = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'sale' %}{% assign tag_data = tag | split: ':'%}{% assign sale = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'rent' %}{% assign tag_data = tag | split: ':'%}{% assign rent = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'dob' %}{% assign tag_data = tag | split: ':'%}{% assign dob = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'prof_exp' %}{% assign tag_data = tag | split: ':'%}{% assign prof_exp = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'businessinfo' %}{% assign tag_data = tag | split: ':'%}{% assign about_business = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'dealsin' %}{% assign tag_data = tag | split: ':'%}{% assign dealsin = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'partners' %}{% assign tag_data = tag | split: ':'%}{% assign partners = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'timing' %}{% assign tag_data = tag | split: ':'%}{% assign timing = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'no_staff' %}{% assign tag_data = tag | split: ':'%}{% assign no_staff = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'no_office' %}{% assign tag_data = tag | split: ':'%}{% assign no_office = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'weekly_off' %}{% assign tag_data = tag | split: ':'%}{% assign weekly_off = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'IVR' %}{% assign tag_data = tag | split: ':'%}{% assign IVR = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'credai' %}{% assign tag_data = tag | split: ':'%}{% assign credai = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'nar' %}{% assign tag_data = tag | split: ':'%}{% assign nar = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'city' %}{% assign tag_data = tag | split: ':'%}{% assign city = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'location' %}{% assign tag_data = tag | split: ':'%}{% assign location = tag_data[1] | strip %}{% endif %}
+
+{% if tag contains 'coverarea' %}{% assign tag_data = tag | split: ':'%}{% assign coverarea = tag_data[1] | strip %}{% endif %}
+
+{% endfor %}
+
+<div style="width: 700px; float: left; min-height: 250px; border-radius: 3px; padding: 3px;">
+  <div style="position: absolute; height: 30px; margin-left: 210px; margin-top: 40px;">
+       <div style="float: left;">
+           <div>
+              <div style="font-size: 17px; font-weight: bold;">
+               <div style="float: left; color:#fff;">
+                  {{ product.title }}&nbsp;&nbsp;
+               </div>
+               {% if product.tags contains 'verified' %}
+                  <div style="float: left; border-radius: 3px; cursor: pointer; margin-left: 5px; padding: 3px; margin-top: -5PX;" class="masterTooltip" title="Verified Profile by in-FOCUS">
+                    <div style="float: left;">
+                      <img style="width: 20px; height: 20px;" src="{{'verified_icon.png'|asset_url}}" />
+                    </div>
+                    <div style="float: left; margin-left: 1px; margin-top: 4px; margin-top: 2px; color:#fff; font-size: 10px; font-weight: none;">
+                      Verified&nbsp;&nbsp;
+                    </div>
+                  </div>
+               {% endif %}
+             </div>
+             <div style="clear: both; margin-top: 10px; font-size: 12px; color:#fff;">
+                {% if fullname != blank %}
+                                        {{ fullname }}
+                                      {% endif %}
+                                      {% if fullname == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+             </div>
+           </div>
+           <div style="margin-top: 60px; clear: both;">
+              <div style="font-size: 17px; font-weight: bold; color:#fff;">
+               Deals In
+             </div>
+             <div style="clear: both; margin-top: 10px; font-size: 12px;">
+                
+               <div style="width: 190px; color:#fff;" class="wordwrap">
+               {% assign attribute_keyword = 'dealsin:' %}
+                                          {% assign marker = ':' %}
+                                          {% assign found = false %}
+                                          {% for tag in product.tags %}
+                                              {% if tag contains attribute_keyword %}
+                                                {% if found == false %}
+                                                  <!-- {% assign found = true %}<h3>My Heading Here</h3>-->
+                                              {% endif %}
+                                                    {{ tag | remove: attribute_keyword | replace_first: marker, ' '| capitalize | replace_first: ' ', '<div style="float: left" class="firsttext">' | prepend: ''  | append: '&#44;&nbsp;</div>' }}
+                                                 {% endif %}
+                                              {% if found and forloop.last %}{% endif %}
+                                          {% endfor %}
+                                      {% if partners == blank %}
+                                        <div>
+                                          NA
+                                      </div>
+                                      {% endif %}
+               </div>
+             </div>
+           </div>
+       </div>
+    <!-- since starts here -->
+       <div style="float: left; margin-left: 10px; border-left:1px solid #fff; padding-left: 15px; width: 180px;">
+           <div>
+              <div style="font-size: 17px; font-weight: bold; color:#fff;">
+               Since
+             </div>
+             <div style="clear: both; margin-top: 10px; font-size: 12px;">
+                <div style="float: left; color:#fff;">
+                  {% if established != blank %}
+                                       <!-- tags add starts -->
+                                         {{ established }}
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if established == blank %}
+                                        <div style="color:#fff;">
+                                          NA
+                                      </div>
+                                      {% endif %}
+               </div>
+             </div>
+           </div>
+           <div style="margin-top: 40px; clear: both;">
+              <div style="font-size: 17px; font-weight: bold; color:#fff;">
+               Ratings
+             </div>
+             <div style="clear: both; margin-top: 15px; font-size: 12px;">
+                
+               <div style="width: 190px; color:#000;" class="wordwrap">
+                  <!-- rating starts -->
+                     {% if rating != blank %}
+                        <div style="text-align: center; margin-left: -80px; margin-top: -10px; cursor: pointer;" class="masterTooltip" title="Rated by in-FOCUS Team">
+                          {% case rating %}               
+                            {% when '1' %}
+                          <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                            {% when '2' %}
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '3' %}
+                               <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '4' %}
+                                <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                          <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                               {% when '5' %}
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star.png'|asset_url}}" />
+                            {% else %}                    
+                          {% endcase %}
+                      </div>
+                        {% endif %}
+                      {% if rating == blank %}
+                         <div style="text-align: left; margin-top: 3px; padding: 5px; cursor: pointer;" class="masterTooltip" title="Not Rated">
+                              <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                                  <img style="height:20px" src="{{'star_no.png'|asset_url}}" />
+                          </div>
+                        {% endif %}
+                  <!-- rating ends -->
+               </div>
+             </div>
+           </div>
+         <!-- city starts here -->
+         <div style="margin-top: 20px; clear: both; margin-bottom: 20px;">
+              <div style="font-size: 17px; font-weight: bold; color:#fff;">
+               City, Location, Area
+             </div>
+             <div style="clear: both; margin-top: 10px; font-size: 12px;">
+                
+               <div style="width: 190px; color:#fff;" class="wordwrap">
+                  {% if city != blank %}
+                                       <!-- tags add starts -->
+                                         <div style="color:#fff; float: left; margin-right: 5px;">
+                                          {{ city }},
+                                      </div>
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if city == blank %}
+                                        <div style="color:#fff; float: left; margin-right: 5px;">
+                                          NA,
+                                      </div>
+                                      {% endif %}
+                 {% if location != blank %}
+                                       <!-- tags add starts -->
+                                         <div style="color:#fff; float: left; margin-right: 5px;">
+                                          {{ location }},
+                                      </div>
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if location == blank %}
+                                        <div style="color:#fff; float: left; margin-right: 5px;">
+                                          NA,
+                                      </div>
+                                      {% endif %}
+                 {% if area != blank %}
+                                       <!-- tags add starts -->
+                                         <div style="color:#fff; float: left;">
+                                          {{ area }}
+                                      </div>
+                                       <!-- tags add ends -->
+                                      {% endif %}
+                                      {% if area == blank %}
+                                        <div style="color:#fff; float: left;">
+                                          NA
+                                      </div>
+                                      {% endif %}
+               </div>
+             </div>
+           </div>
+         <!-- city ends here -->
+       </div>
+    <!-- since ends here -->   
+  </div>
+  <div class="cover-image cover-panel-professional">
+  <div style="width: 130px; height: 110px; position: absolute; margin-top: 180px; margin-left: 20px; padding: 5px; border-radius: 3px; ">
+    <div style="padding: 5px;">
+    	<img src="{{ product.images[0] | product_img_url: "compact" }}" alt="{{ product.featured_image.alt | escape }}" style="width: 130px; height: 130px; border-radius: 3px;"/>
+    </div>
+    <!-- <div style="clear: both;">
+      {% include 'rating-professional' %}
+    </div> -->
+  </div>
+  </div>
+  <div style="clear: both; background-color:#f90b0e; padding: 5px; min-height: 80px;">
+    <div style="margin-left: 160px;">
+    <!-- <div style="float:left;">
+      <div style="float: left; margin-left: 5px;">
+            <h2 class="cover-name">{{ product.title }}</h2>
+          </div>
+          {% if product.tags contains 'verified' %}
+          <div style="float: left; border-radius: 3px; cursor: pointer; margin-left: 10px; padding: 3px; margin-top: -3PX;" class="masterTooltip" title="Verified Profile by in-FOCUS">
+            <div style="float: left;">
+              <img style="width: 20px; height: 20px;" src="{{'verified_icon.png'|asset_url}}" />
+            </div>
+            <div style="float: left; margin-left: 1px; margin-top: 4px; margin-top: 2px; font-weight: bold; color:#fff;">
+              Verified&nbsp;&nbsp;
+            </div>
+          </div>
+          {% endif %}
+    </div> -->
+    <div style="clear: both; padding: 5px; margin-top: 20px; margin-left: 20px;">
+        <a href="#aboutme">
+         <div style="background-color:#fff; padding: 5px; width: 100px; border-radius: 3px; text-align: center; float: left;">
+         About me
+      	 </div>
+      	</a>
+      	<a href="#businessprofile">
+         <div style="background-color:#fff; margin-left: 10px; padding: 5px; width: 100px; border-radius: 3px; text-align: center; float: left;">
+        Business Profile
+      	 </div>
+      	</a>
+      	
+      <a href="#photos">
+         <div style="background-color:#fff; margin-left: 10px; padding: 5px; width: 100px; border-radius: 3px; text-align: center; float: left;">
+        	Photos
+      	 </div>
+      	</a>
+      <a href="#awards&achievements">
+         <div style="background-color:#fff; margin-left: 10px; padding: 5px; width: 100px; border-radius: 3px; text-align: center; float: left;">
+        	Achievements
+      	 </div>
+      	</a>
+    </div>
+    </div>
+  </div>
+</div>

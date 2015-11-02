@@ -1,0 +1,176 @@
+.navbar-default {
+background-color: white!important;
+border-color: white!important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: black;
+  background-color: transparent;
+  background-image :none !important;
+}
+.thumbnail > img {
+
+    width :200px !important;
+    height :200px !important;
+}
+marquee {
+    color: #808080;
+}
+.Banner {
+   
+    padding-bottom:20px;
+ 
+}
+.textcenter {
+    text-align:center;
+}
+.textleft {
+    text-align:center;
+}
+.img-thumbnail {
+    padding-left : 20px;
+    height:80px;
+}
+.Log {
+    height:60px;
+    margin-bottom :10px;
+    margin-left :20px;
+   margin-top :20px!important;
+}
+
+.navbar-default {
+    background-color: white!important;
+    border-color: none!important;
+    border:none;
+}
+.well {
+
+      background-color: white!important;
+    border-color: none!important;
+    border:none;
+  background-image:none!important;
+   box-shadow :none;
+}
+
+.thumbnail {
+    background-color: white!important;
+    border-color: none!important;
+    border:none;
+  box-shadow :none!important;
+}
+.img-thumbnail {
+  background-color: white!important;
+    border-color: none!important;
+    border:none;
+     box-shadow :none!important;
+}
+.panel {
+  background-color: white!important;
+    border-color: none!important;
+    border:none;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.05);
+}
+
+.panel-default {
+      background-color: white!important;
+    border-color: none!important;
+    border:none;
+}
+.panel-default > .panel-heading {
+          background-color: white!important;
+    border-color: none!important;
+    border:none;
+    }
+
+footer {
+    background: none repeat scroll 0% 0% #EEE;
+    font-size: 11px;
+  
+}
+ul, ol {
+    list-style:none;
+        text-align:left;
+}
+
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+      background-color: white!important;
+    border-color: none!important;
+    border:none;
+}
+
+
+.carousel {
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.50);    
+    background-color:whitesmoke; 
+    padding: 1px; 
+}
+
+.mess {
+     background-color:black; 
+     color: white;
+     height:40px;
+
+}
+marquee {
+    color: white;
+         text-align:center;
+}
+
+.thumbnail_line {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out 0s;
+}
+.panel-default > .panel-heading {
+  background-image :none !important;
+}
+
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+
+.navbar-default {
+    background-image: none;
+    background-repeat: repeat-x;
+    border-radius: 4px;
+    box-shadow: none;
+}
+.logo {
+  padding-top:10px;
+   padding-left:80px;
+height:45px;
+}
+.banner
+{
+ /* width :300px;
+  height :150px;*/
+  margin-top :20px;
+  float: right;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#inventory { padding: 20px 0; }
+    #inventory table { width: 100%; }
+    #inventory table th { background: #f6f6f6; }
+    #inventory table th, #inventory table td { padding: 5px; border-top: 1px solid #EEE; text-align: left; 
+    }
+
